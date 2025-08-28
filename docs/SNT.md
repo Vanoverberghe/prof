@@ -2,4 +2,4 @@
 
 ### Photographie numérique
 
-[Cours 1](../supports/images_Boulier_Hugo.pdf)
+[Cours 1](../supports/Photographie_numerique.pdf)
