@@ -2,4 +2,4 @@
 
 ### Photographie numérique
 
-[Cours 1](../SNT/Photo/Photographie_numerique.pdf)
+Cours 1 : [pdf](../supports/SNT/Photo/Photographie_numerique.pdf)  [odt](../supports/SNT/Photo/Photographie_numerique.odt)
