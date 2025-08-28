@@ -1,6 +1,9 @@
 site_name: Cours Vanoverberghe
 site_url: https://profvano.github.io
 site_dir: public
+
+extra_css: [extra.css]
+
 theme:
   name: material
   font:
