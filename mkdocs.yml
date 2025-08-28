@@ -4,16 +4,6 @@ site_dir: public
 
 extra_css: [extra.css]
 
-markdown_extensions:
-  - admonition
-  - markdown_katex:
-      no_inline_scg: True
-      insert_fonts_css: True
-  - pymdownx.superfences
-  - pymdownx.highlight:
-      linenums_style: 'table'
-  - pymdownx.inlinehilite
-
 theme:
   name: material
   font:
