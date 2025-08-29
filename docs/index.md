@@ -1,6 +1,4 @@
-# Cours de SNT
-
-[SNT](https://vanoverberghe.github.io/prof/SNT)
+=== "SNT"
 
 [cours 1](./supports/SNT/Photo/Photographie_numerique.pdf)
 
