@@ -5,6 +5,7 @@ site_dir: public
 extra_css: [extra.css]
 
 markdown_extensions:
+  - attr_list
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
