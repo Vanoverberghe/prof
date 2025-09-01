@@ -1,35 +1,21 @@
 === "SNT"
 # Sciences Numérique et Technologique
 
-[cours](./SNT/index_SNT.md)
-
 modalité du cours et notations 
 
-## Photographie Numérique
-
-[cours 1](./supports/SNT/Photo/Photographie_numerique.pdf)
-
-[cours 2](./supports/SNT/Photo/Photo_numerique_II.pdf)
+[cours](./SNT/index_SNT.md)
 
 === "NSI 1ère"
 # Numérique et Sciences Informatiques 1ère
 
 modalité du cours et notations
 
-# Bases de python
-
-[Introduction](./supports/NSI_1ere/Python/Introduction_python.pdf)
-
-[print/input](./supports/NSI_1ere/Python/Print_input.pdf)
-
-[Affectations](./supports/NSI_1ere/Python/Affectations_types.pdf)
-
-[Structures Conditionnelles](./supports/NSI_1ere/Python/Exos_conditionnelles.pdf)
-
-[Boucles](./supports/NSI_1ere/Python/Exos_boucle.pdf)
+[Cours Première](./NSI_1ere/index_1ere.md)
 
 === "NSI Tale"
 
 # Numérique et Sciences Informatiques Tale
 
 modalité du cours et notations
+
+[Cours terminale](./NSI_Tale/index_Tale.md)
