@@ -13,3 +13,5 @@ modalité du cours et notations
 [Exercices Structure conditionnelles](./supports/Python/Exos_conditionnelles.pdf)
 
 [Exercices Boucles](./supports/Python/Exos_boucle.pdf)
+
+[Fonctions](./supports/Python/Fonctions.pdf)
