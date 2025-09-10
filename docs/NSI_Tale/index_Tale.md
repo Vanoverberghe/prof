@@ -7,3 +7,7 @@ modalité du cours et notations
 [Cours POO](./supports/POO/cours_objets.pdf)
 
 [TP 1](./supports/POO/TP_programmation_objet.pdf)
+
+## Récursivité
+
+[Cours/Exercices sur la Récursivité](./supports/Recursivite/cours_recursivite.pdf)

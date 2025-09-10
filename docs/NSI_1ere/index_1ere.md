@@ -15,3 +15,13 @@ modalité du cours et notations
 [Exercices Boucles](./supports/Python/Exos_boucle.pdf)
 
 [Fonctions](./supports/Python/Fonctions.pdf)
+
+## Représentation des données
+
+[Cours représentation en bases (Binaire / Hexadécimal)](./supports/Representation_donnees/Numeration_Binaire_Hexadecimal.pdf)
+
+[Exercices Binaire Hexadecimal](./supports/Representation_donnees/Exercices_Representation_Binaire.pdf)
+
+[Cours représentation des entiers en machine](./supports/Representation_donnees/Cours_Representation_Nombres.pdf)
+
+[Exercices représentation des entiers](./supports/Representation_donnees/Exercices_Representation_Nombres.pdf)
