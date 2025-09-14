@@ -10,4 +10,4 @@ modalité du cours et notations
 
 ## Récursivité
 
-[Cours/Exercices sur la Récursivité](./supports/Recursivite/cours_recursivite.pdf)
+[Cours et Exercices sur la Récursivité](./supports/Recursivite/cours_recursivite.pdf)
