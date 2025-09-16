@@ -19,3 +19,10 @@ modalité du cours et notations
 modalité du cours et notations
 
 [Cours terminale](./NSI_Tale/index_Tale.md)
+
+
+=== "Corrections"
+
+# Corrections des 3 classes
+
+[Lien](https://github.com/Vanoverberghe/corrections)
