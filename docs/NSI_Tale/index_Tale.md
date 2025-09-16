@@ -8,6 +8,10 @@ modalité du cours et notations
 
 [TP 1](./supports/POO/TP_programmation_objet.pdf)
 
+[Entrainements](./supports/POO/Entrainements.pdf)
+
 ## Récursivité
 
 [Cours/Exercices sur la Récursivité](./supports/Recursivite/cours_exo_recursivite.pdf)
+
+[Entrainements](./supports/Recursivite/Entrainements.pdf)
