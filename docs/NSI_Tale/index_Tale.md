@@ -15,3 +15,5 @@ modalité du cours et notations
 [Cours/Exercices sur la Récursivité](./supports/Recursivite/cours_exo_recursivite.pdf)
 
 [Entrainements](./supports/Recursivite/Entrainements.pdf)
+
+[Flash](./supports/Python.pdf)
