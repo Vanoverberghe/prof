@@ -2,6 +2,8 @@
 
 modalité du cours et notations
 
+[Flash](./supports/Python.pdf)
+
 ## Programmation orientée objet 
 
 [Cours POO](./supports/POO/cours_objets.pdf)
@@ -15,8 +17,6 @@ modalité du cours et notations
 [Cours/Exercices sur la Récursivité](./supports/Recursivite/cours_exo_recursivite.pdf)
 
 [Entrainements](./supports/Recursivite/Entrainements.pdf)
-
-[Flash](./supports/Python.pdf)
 
 ## Liste Chainée
 
