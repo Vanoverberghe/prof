@@ -18,6 +18,8 @@ modalité du cours et notations
 
 [Entrainements](./supports/Python/exercices_python.pdf)
 
+[Flash](./supports/Python/Flash.pdf)
+
 ## Représentation des données
 
 [Cours représentation en bases (Binaire / Hexadécimal)](./supports/Representation_donnees/Numeration_Binaire_Hexadecimal.pdf)
