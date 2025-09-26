@@ -4,6 +4,8 @@ modalité du cours et notations
 
 [Flash](./supports/Python.pdf)
 
+[France-IOI](https://www.france-ioi.org/algo/chapters.php)
+
 ## Programmation orientée objet 
 
 [Cours POO](./supports/POO/cours_objets.pdf)
