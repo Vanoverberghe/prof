@@ -29,3 +29,5 @@ modalité du cours et notations
 [Cours représentation des entiers en machine](./supports/Representation_donnees/Cours_Representation_Nombres.pdf)
 
 [Exercices représentation des entiers](./supports/Representation_donnees/Exercices_Representation_Nombres.pdf)
+
+[IEE 754](./supports/Representation_donnees/norme.pdf)
