@@ -20,6 +20,8 @@ modalité du cours et notations
 
 [Flash](./supports/Python/Flash.pdf)
 
+[Exos Fonctions](./supports/Python/Exercices_fonctions.pdf)
+
 ## Représentation des données
 
 [Cours représentation en bases (Binaire / Hexadécimal)](./supports/Representation_donnees/Numeration_Binaire_Hexadecimal.pdf)
@@ -29,5 +31,3 @@ modalité du cours et notations
 [Cours représentation des entiers en machine](./supports/Representation_donnees/Cours_Representation_Nombres.pdf)
 
 [Exercices représentation des entiers](./supports/Representation_donnees/Exercices_Representation_Nombres.pdf)
-
-[IEE 754](./supports/Representation_donnees/norme.pdf)
