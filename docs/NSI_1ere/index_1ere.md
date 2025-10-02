@@ -2,6 +2,8 @@
 
 modalité du cours et notations
 
+[Flash](./supports/Python/Flash.pdf)
+
 ## Introduction au Python
 
 [Introduction](./supports/Python/Introduction_python.pdf)
@@ -18,9 +20,6 @@ modalité du cours et notations
 
 [Entrainements](./supports/Python/exercices_python.pdf)
 
-[Flash](./supports/Python/Flash.pdf)
-
-[Exos Fonctions](./supports/Python/Exercices_fonctions.pdf)
 
 ## Représentation des données
 
