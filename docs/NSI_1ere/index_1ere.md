@@ -36,3 +36,5 @@ modalité du cours et notations
 ## Type de données
 
 [Chaine de caracteres](./supports/Types/Parcours_str.pdf)
+
+[Exos parcours de chaines](./supports/Types/exo_str.pdf)
