@@ -38,3 +38,7 @@ modalité du cours et notations
 [Chaine de caracteres](./supports/Types/Parcours_str.pdf)
 
 [Exos parcours de chaines](./supports/Types/exo_str.pdf)
+
+[Tableaux ( list en Python )](./supports/Types/parcours_liste.pdf)
+
+[Exos parcours de listes](./supports/Types/exos_listes.pdf)
