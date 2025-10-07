@@ -1,7 +1,5 @@
 # Numérique et Sciences Informatiques Tale
 
-modalité du cours et notations
-
 [Flash](./supports/Python.pdf)
 
 [France-IOI](https://www.france-ioi.org/algo/chapters.php)
