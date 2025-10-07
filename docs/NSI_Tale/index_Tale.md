@@ -1,5 +1,12 @@
 # Numérique et Sciences Informatiques Tale
 
+### les évaluations :
+
+    - Les interrogations seront sur 1h et constituées de questions de cours et exercices rapides.
+    Elles seront notées sur 10 et il y en aura 1 ou 2 par séquence.
+    - Certaines notions seront évalués par des QCM notés sur 10.
+    - Les devoirs surveillés seront en fin de séquence. Ils seront coupés en 2 parties, 1 sur papier et 1 sur ordinateur ( chacun 1h ). Notés sur 20 et constitués de questions de cours et exercices plus construits.
+
 [Flash](./supports/Python.pdf)
 
 [France-IOI](https://www.france-ioi.org/algo/chapters.php)
