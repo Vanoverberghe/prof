@@ -1,6 +1,6 @@
 discord ,il sera plus beau plus tard:
 
-https://discord.gg/4DFp3EVG
+[https://discord.gg/4DFp3EVG](https://discord.gg/4DFp3EVG)
 
 === "SNT"
 # Sciences Numérique et Technologique
