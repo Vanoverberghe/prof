@@ -55,3 +55,9 @@
 [Tableaux ( list en Python )](./supports/Types/parcours_liste.pdf)
 
 [Exos parcours de listes](./supports/Types/exos_listes.pdf)
+
+[Exos tuples](./supports/Types/tuple.pdf)
+
+[Cours dictionnaires](./supports/Types/dico.pdf)
+
+[Exercices dictionnaires](./supports/Types/ex_dico.pdf)

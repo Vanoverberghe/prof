@@ -39,6 +39,19 @@
 
 [Cours Files](./supports/Piles_Files/Cours_Files.pdf)
 
+## Architecture réseaux et routage
+
+[Activité Filius](./supports/rsx/Filius.pdf)
+
+
+## Bases de données relationnelles
+
+[Cours BDD](./supports/BDD/BDD.pdf)
+
+[TP 1](./supports/BDD/TP.pdf)
+
+
+
 ## Projets
 
 [Pokemons](./supports/Projets/pokemon.pdf)
