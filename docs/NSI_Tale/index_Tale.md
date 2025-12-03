@@ -50,6 +50,13 @@
 
 [TP 1](./supports/BDD/TP.pdf)
 
+[TP 2 DB Browser](./supports/BDD/C9_1B_TP.pdf)
+
+[cinema_v1](./supports/BDD/cinema_v1.sqlite)
+
+[Logiciel DB Browser for SQLite](./supports/BDD/DB.Browser.for.SQLite-v3.13.1-win64.zip)
+
+
 
 
 ## Projets
