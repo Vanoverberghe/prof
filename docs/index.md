@@ -13,6 +13,9 @@
 
 [Cours terminale](./NSI_Tale/index_Tale.md)
 
+=== "Evènements et concours"
+
+<a href="girlscancode.fr"><img src="./NSI_Tale/supports/Infos_concours/girlscancode.jpeg"/></a>
 
 === "Corrections"
 # Corrections des 3 classes

@@ -56,7 +56,9 @@
 
 [Logiciel DB Browser for SQLite](./supports/BDD/DB.Browser.for.SQLite-v3.13.1-win64.zip)
 
+[Langage SQL](./supports/BDD/C9_2.pdf)
 
+[TP SQL](./supports/BDD/C9_2_TP.pdf)
 
 
 ## Projets
