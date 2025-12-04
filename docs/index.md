@@ -15,7 +15,9 @@
 
 === "Evènements et concours"
 
-<a href="girlscancode.fr"><img src="./NSI_Tale/supports/Infos_concours/girlscancode.jpeg"/></a>
+<a href="https://girlscancode.fr/"><img src="./NSI_Tale/supports/Infos_concours/girlscancode.jpeg"/></a>
+
+<a href="https://prologin.org/"><img src="./NSI_Tale/supports/Infos_concours/prologin.png"/></a>
 
 === "Corrections"
 # Corrections des 3 classes
