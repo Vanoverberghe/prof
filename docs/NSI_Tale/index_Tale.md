@@ -60,6 +60,8 @@
 
 [TP SQL](./supports/BDD/C9_2_TP.pdf)
 
+[cinema_v2](./supports/BDD/cinema_v2.sqlite)
+
 
 ## Projets
 
