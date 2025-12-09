@@ -20,3 +20,17 @@
 [cours 1](./supports/Photo/Photographie_numerique.pdf)
 
 [cours 2](./supports/Photo/Photo_numerique_II.pdf)
+
+## Python
+
+[Cours de bases de python](./supports/Python/python_affectation_entrees_sorties.pdf)
+
+[Pyrates](https://py-rates.org/)
+
+## Réseaux sociaux 
+
+[Cours sur les graphes dans les réseaux](./supports/Reseaux/Les%20graphes%20et%20les%20réseaux%20sociaux.pdf)
+
+## Gestion de données
+
+[TP Introduction](./supports/Données/TP_01_introduction.pdf)
