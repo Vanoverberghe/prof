@@ -66,6 +66,8 @@
 
 [Entrainements interro](./supports/Types/Entrainements.md)
 
+[Correction entrainements](./supports/Types/Correction_Entrainements.md)
+
 ## Réseaux
 
 [Activité Filius](./supports/Rsx/Filius.pdf)
