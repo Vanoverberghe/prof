@@ -64,6 +64,8 @@
 
 [Exercices dictionnaires](./supports/Types/ex_dico.pdf)
 
+[Entrainements interro](./supports/Types/Entrainements.md)
+
 ## Réseaux
 
 [Activité Filius](./supports/Rsx/Filius.pdf)
