@@ -7,9 +7,9 @@
     - Certaines notions seront évalués par des QCM notés sur 10.
     - Les devoirs surveillés seront en fin de séquence. Ils seront coupés en 2 parties, 1 sur papier et 1 sur ordinateur ( chacun 1h ). Notés sur 20 et constitués de questions de cours et exercices plus construits.
 
-[Flash](./supports/Flash.pdf)
+[Exercice POO BDD](./supports/Exo_bac_BDD_POO.pdf)
 
-[Flash2](./supports/Flash2.pdf)
+[Exercice Files Récursivité](./supports/Exos_bac_files.pdf)
 
 [France-IOI](https://www.france-ioi.org/algo/chapters.php)
 
