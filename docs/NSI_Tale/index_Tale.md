@@ -9,7 +9,19 @@
 
 [Exercice POO BDD](./supports/Exo_bac_BDD_POO.pdf)
 
+[correction](./supports/correction_bdd.pdf)
+
 [Exercice Files Récursivité](./supports/Exos_bac_files.pdf)
+
+[correction](./supports/correction_files.pdf)
+
+[Livret entrainement POO](./supports/Entrainements/livretEntrainementPOO.pdf)
+
+[Livret entrainement Piles/Files](./supports/Entrainements/cahier_entrainement_piles_files.pdf)
+
+[Livret entrainement Recursivité](./supports/Entrainements/Cahier_entrainement_recursivite.pdf)
+
+[Livret entrainement BDD](./supports/Entrainements/bases_donnees_cahier-1.pdf)
 
 [France-IOI](https://www.france-ioi.org/algo/chapters.php)
 
