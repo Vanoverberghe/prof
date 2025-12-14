@@ -68,6 +68,12 @@
 
 [Correction entrainements](./supports/Types/Correction_Entrainements.md)
 
+## Mise au point de programmes Python
+
+[Cours documentation et tests](./supports/Python/doc_test.pdf)
+
+[Fiche d'exercices](./supports/Python/ex_doc_test.pdf)
+
 ## Réseaux
 
 [Activité Filius](./supports/Rsx/Filius.pdf)
