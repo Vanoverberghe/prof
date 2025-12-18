@@ -1,5 +1,6 @@
 # Numérique et Sciences Informatiques 1ère
 
+[Interro Pratique](./supports/Types/Interro_pratique_rattrapage.md)
 
 
 ### Les évaluations :
