@@ -83,4 +83,4 @@
 
 ## Projets
 
-[Pokemons](./supports/Projets/pokemon.pdf)
+[Morpion](./supports/Projets/tictactoe/projet.pdf)
