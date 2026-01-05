@@ -84,3 +84,9 @@
 ## Projets
 
 [Morpion](./supports/Projets/tictactoe/projet.pdf)
+
+[db_manager.py](./supports/Projets/tictactoe/db_manager.py)
+
+[morpion.py](./supports/Projets/tictactoe/morpion.py)
+
+[main_morpion.py](./supports/Projets/tictactoe/main_morpion.py)
