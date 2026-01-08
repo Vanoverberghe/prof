@@ -80,6 +80,10 @@
 
 [Cours bases des arbres](./supports/Arbres/Cours1.pdf)
 
+[Arbres binaires et parcours](./supports/Arbres/Binaire.pdf)
+
+[Exercices arbres binaires et parcours](https://pixees.fr/informatiquelycee/term/c8e.html)
+
 
 ## Projets
 
