@@ -81,6 +81,8 @@
 
 [Logiciel Filius](./supports/Rsx/Filius.zip)
 
+[Entrainements](https://info-mounier.fr/premiere_nsi/archi_os/architecture-reseau-exercices)
+
 ## Projets
 
 [Sujet projet motus](./supports/Projets/motus.pdf)
