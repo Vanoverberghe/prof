@@ -23,6 +23,8 @@
 
 [Livret entrainement BDD](./supports/Entrainements/bases_donnees_cahier-1.pdf)
 
+[Bac Blanc](./supports/Sujet-1.pdf)
+
 [France-IOI](https://www.france-ioi.org/algo/chapters.php)
 
 ## Programmation orientée objet 
@@ -75,6 +77,8 @@
 [TP SQL](./supports/BDD/C9_2_TP.pdf)
 
 [cinema_v2](./supports/BDD/cinema_v2.sqlite)
+
+[Entrainements](https://pixees.fr/informatiquelycee/term/c3e.html)
 
 ## Arbres 
 
