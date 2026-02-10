@@ -38,3 +38,11 @@
 [TP formats de tables](./supports/Données/TP_02_formats_donnees.pdf)
 
 [TP Tableurs](./supports/Données/TP_03_tableur.pdf)
+
+## Web
+
+[TP HTML](./supports/Web/01_TP_page_web.pdf)
+
+[TP CSS](./supports/Web/03_TP_css.pdf)
+
+[Archive TP CSS](./supports/Web/03_TP_css_ressources.zip)
