@@ -88,6 +88,12 @@
 
 [Exercices arbres binaires et parcours](https://pixees.fr/informatiquelycee/term/c8e.html)
 
+[Definitions squelettes d'arbres](./supports/Arbres/Diapo_SR.pdf)
+
+[TP binarytree](./supports/Arbres/tp_arbres_binaires.pdf)
+
+[TP parcours](./supports/Arbres/tp_fonctions_arbres.pdf)
+
 
 ## Projets
 
