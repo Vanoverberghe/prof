@@ -1,0 +1,5086 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://profvano.github.io/NSI_Tale/supports/rsx/Filius/">
+      
+      
+        <link rel="prev" href="../../Projets/tictactoe/projet/">
+      
+      
+        <link rel="next" href="Changelog/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Activité réseau - Cours Vanoverberghe</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Merriweather";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#activite-reseau" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Cours Vanoverberghe" class="md-header__button md-logo" aria-label="Cours Vanoverberghe" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cours Vanoverberghe
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Activité réseau
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Cours Vanoverberghe" class="md-nav__button md-logo" aria-label="Cours Vanoverberghe" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cours Vanoverberghe
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NSI 1ere
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    NSI 1ere
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/index_1ere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Numérique et Sciences Informatiques 1ère
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supports
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Supports
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Python/Exercices_fonctions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📘 Exercices Python – Listes et calculs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Python/doc_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Doc test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Python/ex_doc_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ex doc test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Python/exercices_python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Python/interrogation_python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interrogation de Python (Durée : 1h)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rsx
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Rsx
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_1" id="__nav_2_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filius
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Filius
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/Changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog Filius
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/Readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filius - Simple Network Simulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_1_3" id="__nav_2_2_2_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java runtime
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java runtime
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_1_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_1_3_1" id="__nav_2_2_2_1_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_1_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_1_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_1_3_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_1_3_1_1" id="__nav_2_2_2_1_3_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java.base
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="7" aria-labelledby="__nav_2_2_2_1_3_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_1_3_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java.base
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.base/aes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.base/asm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.base/c-libutl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C libutl
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.base/cldr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cldr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.base/icu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Icu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.base/public_suffix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Public suffix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.base/unicode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unicode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.base/wepoll/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wepoll
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.base/zlib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zlib
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_1_3_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_1_3_1_2" id="__nav_2_2_2_1_3_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java.desktop
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="7" aria-labelledby="__nav_2_2_2_1_3_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_1_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java.desktop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.desktop/colorimaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Colorimaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.desktop/freetype/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Freetype
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.desktop/giflib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Giflib
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.desktop/harfbuzz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Harfbuzz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.desktop/jpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jpeg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.desktop/lcms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lcms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.desktop/libpng/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Libpng
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.desktop/mesa3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mesa3d
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_1_3_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_1_3_1_3" id="__nav_2_2_2_1_3_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java.xml
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="7" aria-labelledby="__nav_2_2_2_1_3_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_1_3_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java.xml
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.xml/bcel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bcel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.xml/dom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dom
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.xml/jcup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jcup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.xml/xalan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Xalan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.xml/xerces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Xerces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_1_3_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_1_3_1_4" id="__nav_2_2_2_1_3_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java.xml.crypto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="7" aria-labelledby="__nav_2_2_2_1_3_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_1_3_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java.xml.crypto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Rsx/Filius/java-runtime/legal/java.xml.crypto/santuario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Santuario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Types
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Types/Correction_Entrainements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Correction Entrainements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Types/Cours_tuple/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours tuple
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Types/Entrainements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrainements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Types/Interro_ecrit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interrogation – Python : listes, tuples et dictionnaires ( Partie écrite )
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Types/Interro_pratique/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interrogation – Python (avec ordinateur) : listes, tuples, dictionnaires ( Pratique )
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Types/Interro_pratique_rattrapage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interrogation – Python (avec ordinateur) : listes, tuples, dictionnaires ( Pratique )
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Types/dico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours : Les dictionnaires en Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Types/ex_dico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fiche d’exercices – Les dictionnaires en Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NSI_1ere/supports/Types/tuple/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tuple
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NSI Tale
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    NSI Tale
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index_Tale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Numérique et Sciences Informatiques Tale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supports
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Supports
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arbres
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arbres
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Arbres/Binaire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Arbres binaires
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Arbres/Cours1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arbres (Structures de données)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BDD
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BDD
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BDD/BDD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BDD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BDD/TP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    POO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    POO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../POO/interrogation_terminales_nsi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interrogation de Python – POO et Récursivité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_4_1" id="__nav_3_2_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tictactoe
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tictactoe
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Projets/tictactoe/projet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 1 : La Base de Données SQLite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rsx
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Rsx
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Activité réseau
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Activité réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#le-logiciel-filius" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le logiciel Filius
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment-communiquer-entre-deux-ordinateurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comment communiquer entre deux ordinateurs ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment-creer-un-reseau-avec-davantage-dordinateurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comment créer un réseau avec davantage d’ordinateurs ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ajout-dun-serveur-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ajout d’un serveur DHCP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deux-reseaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deux réseaux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deux réseaux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deux-reseaux-separes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deux réseaux séparés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-relie-un-reseau-a-un-serveur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On relie un réseau à un serveur
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-web-et-les-echanges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le WEB et les échanges.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le WEB et les échanges.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comment-ajouter-un-serveur-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comment ajouter un serveur DNS ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comment-ajouter-un-serveur-web-sur-notre-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comment ajouter un serveur web sur notre réseau ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observation-des-echanges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observation des échanges
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocole-du-bit-alterne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protocole du bit alterné
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protocole du bit alterné">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#situation-ideale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Situation idéale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#situation-reelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Situation réelle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution-naive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution naïve...
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mais-peu-efficace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mais peu efficace...
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bob-prend-le-controle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bob prend le contrôle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bob prend le contrôle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cas-ou-le-sous-message-est-perdu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas où le sous-message est perdu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cas-ou-le-ack-est-perdu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas où le ACK est perdu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cas-ou-un-sous-message-est-en-retard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas où un sous-message est en retard
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interconnexion-de-deux-reseaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interconnexion de deux réseaux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interconnexion de deux réseaux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interconnexion-de-deux-reseaux_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interconnexion de deux réseaux.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interconnexion de deux réseaux.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-de-routage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table de routage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interconnexion-de-quatre-reseaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interconnexion de quatre réseaux.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_5_2" id="__nav_3_2_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filius
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Filius
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog Filius
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filius - Simple Network Simulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_5_2_3" id="__nav_3_2_5_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java runtime
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_3_2_5_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java runtime
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_5_2_3_1" id="__nav_3_2_5_2_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_3_2_5_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5_2_3_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_5_2_3_1_1" id="__nav_3_2_5_2_3_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java.base
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="7" aria-labelledby="__nav_3_2_5_2_3_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5_2_3_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java.base
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.base/aes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.base/asm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.base/c-libutl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C libutl
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.base/cldr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cldr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.base/icu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Icu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.base/public_suffix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Public suffix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.base/unicode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unicode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.base/wepoll/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wepoll
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.base/zlib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zlib
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5_2_3_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_5_2_3_1_2" id="__nav_3_2_5_2_3_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java.desktop
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="7" aria-labelledby="__nav_3_2_5_2_3_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5_2_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java.desktop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.desktop/colorimaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Colorimaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.desktop/freetype/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Freetype
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.desktop/giflib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Giflib
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.desktop/harfbuzz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Harfbuzz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.desktop/jpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jpeg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.desktop/lcms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lcms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.desktop/libpng/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Libpng
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.desktop/mesa3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mesa3d
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5_2_3_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_5_2_3_1_3" id="__nav_3_2_5_2_3_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java.xml
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="7" aria-labelledby="__nav_3_2_5_2_3_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5_2_3_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java.xml
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.xml/bcel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bcel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.xml/dom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dom
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.xml/jcup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jcup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.xml/xalan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Xalan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.xml/xerces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Xerces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5_2_3_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_5_2_3_1_4" id="__nav_3_2_5_2_3_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java.xml.crypto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="7" aria-labelledby="__nav_3_2_5_2_3_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5_2_3_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java.xml.crypto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-runtime/legal/java.xml.crypto/santuario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Santuario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SNT
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SNT
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SNT/index_SNT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sciences Numérique et Technologique
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#le-logiciel-filius" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le logiciel Filius
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment-communiquer-entre-deux-ordinateurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comment communiquer entre deux ordinateurs ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment-creer-un-reseau-avec-davantage-dordinateurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comment créer un réseau avec davantage d’ordinateurs ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ajout-dun-serveur-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ajout d’un serveur DHCP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deux-reseaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deux réseaux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deux réseaux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deux-reseaux-separes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deux réseaux séparés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-relie-un-reseau-a-un-serveur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On relie un réseau à un serveur
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-web-et-les-echanges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le WEB et les échanges.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le WEB et les échanges.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comment-ajouter-un-serveur-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comment ajouter un serveur DNS ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comment-ajouter-un-serveur-web-sur-notre-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comment ajouter un serveur web sur notre réseau ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observation-des-echanges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observation des échanges
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocole-du-bit-alterne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protocole du bit alterné
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protocole du bit alterné">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#situation-ideale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Situation idéale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#situation-reelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Situation réelle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution-naive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution naïve...
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mais-peu-efficace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mais peu efficace...
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bob-prend-le-controle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bob prend le contrôle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bob prend le contrôle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cas-ou-le-sous-message-est-perdu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas où le sous-message est perdu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cas-ou-le-ack-est-perdu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas où le ACK est perdu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cas-ou-un-sous-message-est-en-retard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas où un sous-message est en retard
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interconnexion-de-deux-reseaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interconnexion de deux réseaux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interconnexion de deux réseaux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interconnexion-de-deux-reseaux_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interconnexion de deux réseaux.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interconnexion de deux réseaux.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-de-routage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table de routage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interconnexion-de-quatre-reseaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interconnexion de quatre réseaux.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="activite-reseau">Activité réseau</h1>
+<h3 id="le-logiciel-filius">Le logiciel Filius</h3>
+<p>⚠️ Sélectionner Français</p>
+<p><img alt="fr" src="./img/capture_install_Filius.png" /></p>
+<p>Le logiciel dispose de deux modes ; on passe d’un mode à l’autre en cliquant sur l’icône correspondante :</p>
+<ul>
+<li>le mode conception, activé par l’icône « marteau »
+<img alt="marteau" src="./img/iconmarteau.png" /></li>
+<li>le mode simulation, activé par l’icône « flèche verte »
+<img alt="sim" src="./img/iconsimul.png" /></li>
+</ul>
+<blockquote>
+<p>Astuces : vérifier en cas de problèmes avec le logiciel Filius</p>
+<ul>
+<li>Etre en mode simulation pour ajouter lignes de commandes</li>
+<li>Les lignes de commandes doivent êre installées des deux côtés pour un ping</li>
+<li>Pour ping : les 2 doivent être configurés</li>
+<li>DHCP ne doit pas être configuré par DHCP mais en statique. Vérifier que son IP a bien été configurée</li>
+<li>Pour que DHCP fonctionne : appuyer sur la flèche verte simulation</li>
+<li>Pour mettre les adresses passerelles : décocher DHCP</li>
+<li>Pour reconnaître un fil, cliquer sur l’interface, cela apparaît en vert</li>
+<li>Les serveurs doivent être démarrés (mode simulation)</li>
+<li>Les cases "utiliser l'adresse IP comme nom" doivent être cochées pour que les IP visibles soient les bonnes.</li>
+<li>Si un cable ne s'allume jamais en vert, vous pouvez essayer de le supprimer, et d'en remettre un nouveau.</li>
+</ul>
+</blockquote>
+<h3 id="comment-communiquer-entre-deux-ordinateurs">Comment communiquer entre deux ordinateurs ?</h3>
+<p>Nous utiliserons le logiciel Filius.</p>
+<ul>
+<li>
+<p>En mode conception, créer un ordinateur portable seul par « glisser-déposer ». Un double-clic sur cet ordinateur permet d’accéder à sa configuration réseau. Son adresse IP par défaut est 192.168.0.10. Changer cette adresse en 192.168.1.1 puis cocher Utiliser l’adresse IP comme nom (à faire sur chaque machine à l’avenir). Nous conservons comme masque 255.255.255.0</p>
+</li>
+<li>
+<p>Créer un second ordinateur portable. Changer son adresse IP en lui attribuant l’adresse 192.168.1.2.</p>
+</li>
+<li>
+<p>Relier les deux ordinateurs par un câble ethernet (prise RJ45).</p>
+</li>
+</ul>
+<p><img src="./img/cable.png" width = 30%/>  </p>
+<p>Observer qu’un câble posé peut ensuite être supprimé : clic-droit puis « supprimer ».</p>
+<ul>
+<li>
+<p>Penser à sauvegarder votre travail régulièrement dans votre dossier Documents</p>
+</li>
+<li>
+<p>Passer en mode simulation. Par un double-clic sur la première machine (192.168.1.1), ouvrir l’installateur de logiciels.</p>
+</li>
+</ul>
+<p><img alt="ordis" src="./img/deux_ordis.png" /></p>
+<ul>
+<li>Installer la ligne de commande en la faisant passer à gauche avec</li>
+</ul>
+<p><img alt="fleche" src="./img/fleche.png" /></p>
+<p>⚠️ Ne pas oublier de cliquer sur « appliquer la modification »</p>
+<ul>
+<li>Ouvrir la ligne de commande (double-clic) et saisir l’instruction ipconfig.</li>
+</ul>
+<p>1) Quelles informations nous apporte cette commande ipconfig ?</p>
+<ul>
+<li>Saisir la commande arp à l’invite de commande.</li>
+</ul>
+<p>2) Que donne le tableau affiché ?</p>
+<blockquote>
+<p>Une adresse MAC (Media Access Control), parfois nommée adresse physique ou adresse Ethernet, est un identifiant physique stocké dans une carte réseau ou une interface réseau similaire. À moins qu'elle n'ait été modifiée par l'utilisateur, elle est unique au monde.
+Elle est constituée de 6 octets écrits sous forme hexadécimale, chacun séparé par " : " (par exemple : 00:13:A9:58:32:EB).
+Les 3 premiers octets définissent le constructeur de la carte réseau (ici Sony Corporation), les 3 derniers le numéro de fabrication. On peut retrouver le constructeur à partir de l’adresse MAC.</p>
+</blockquote>
+<ul>
+<li>
+<p>Effectuer un ping vers la machine 192.168.1.2, la commande à saisir est : ping 192.168.1.2.</p>
+</li>
+<li>
+<p>Si tout va bien, on observe que le câble se colore en vert (parfois trop rapide pour être visible) le temps du transfert de données et qu’aucun paquet n’est perdu à ce stade.</p>
+</li>
+</ul>
+<p>3) Saisir à nouveau la commande arp à l’invite de commande Qu’est ce qui a changé depuis le ping ?</p>
+<blockquote>
+<p>Lorsque l’ordinateur 192.168.1.1 fait un ping vers 192.168.1.2 (couche réseau) et qu’il passe la requête à la couche liaison de données, cette couche a besoin de l’adresse MAC pour réaliser cette requête. Or il ne la connait pas. Un échange avec le protocole ARP permet de l’obtenir.</p>
+</blockquote>
+<ul>
+<li>Faire un clic-droit sur la machine 192.168.1.1 et afficher les échanges de données. Sélectionner la ligne du haut et lire les explications qui s’affichent dans la fenêtre du bas.</li>
+</ul>
+<p><img alt="arp1" src="./img/arp1.png" /></p>
+<p><img alt="osi" src="./img/osi.png" /></p>
+<p>Source de l’image : https://cisco.goffinet.org/ccna/fondamentaux/modeles-tcp-ip-osi/
+Légendes des icônes utilisées : (source : https://www.edrawsoft.com/fr/cisco-network-topology-icons.html) </p>
+<p><img alt="legende" src="./img/legende.png" /></p>
+<blockquote>
+<p>Les protocoles ARP et ICMP</p>
+<ul>
+<li>Les protocoles ARP et ICMP sont de la couche 3 du modèle OSI, c’est-à-dire de la couche internet du modèle TCP/IP</li>
+<li>Le protocole ARP : Adresse Resolution Protocol permet de lier à une adresse logique IP une adresse physique MAC.</li>
+<li>Le protocole ICMP : Internet Control Message Protocol permet de véhiculer des messages de contrôle et d'erreur.</li>
+</ul>
+</blockquote>
+<p>👉 Nous allons étudier plus précisément les lignes de l’échange de données.</p>
+<p>4) Expliquer comment 192.168.1.1 obtient l’adresse MAC de 192.168.1.2. En particulier à qui envoie-t-il la demande ?</p>
+<ul>
+<li>La machine 1 envoie sur le réseau (à toutes les machines : adresse de diffusion) une demande de l'adresse MAC de la machine 2. (ligne 1 de l'image, avec l'explication en bas.)</li>
+<li>La machine concernée lui renvoie son adresse MAC (ligne 2 de l'image).</li>
+</ul>
+<p>5) Quelle est l’adresse IP de diffusion ?</p>
+<p>6) Quel est le protocole utilisé par le ping ? Dans quelle couche du modèle TCP/IP se situe-t-il ?</p>
+<p>7) A l’issue du ping, comment l’ordinateur 192.168.1.1 sait-il que l’ordinateur 192.168.1.2 est bien connecté ?</p>
+<h3 id="comment-creer-un-reseau-avec-davantage-dordinateurs">Comment créer un réseau avec davantage d’ordinateurs ?</h3>
+<ul>
+<li>Revenir en mode conception et créer un troisième puis un quatrième ordinateur portable.</li>
+</ul>
+<p>Sur Filius les « portables » servent à simuler des ordinateurs, et les « ordinateurs » servent à simuler des serveurs.</p>
+<ul>
+<li>
+<p>Vérifier alors qu’il est impossible de les relier aux autres par un câble (« il n’y a plus de connecteur disponible »). Pour créer un réseau avec plus de 2 ordinateurs il faut utiliser des switchs (ou commutateur).</p>
+</li>
+<li>
+<p>Câbler 4 ordinateurs autour d’un switch puis donner à ces nouveaux ordinateurs des adresses IP pertinentes.</p>
+</li>
+<li>Tester les connexions de votre réseau local en faisant des « ping » entre les ordinateurs.</li>
+<li>Sauvegarder votre projet sous un nom pertinent (ex : <code>ReseauLocalAvecSwitch.fls</code>)</li>
+</ul>
+<h3 id="ajout-dun-serveur-dhcp">Ajout d’un serveur DHCP</h3>
+<p>Si vous voulez ajouter des matériels dans votre réseau, sans avoir à paramétrer manuellement chacune des adresses IP de votre réseau, vous devez ajouter un serveur DHCP.</p>
+<ul>
+<li>
+<p>Revenir en mode conception.</p>
+</li>
+<li>
+<p>Ajoutez un nouveau périphérique Ordinateur, le nommer Serveur DHCP, le relier au switch, le configurer avec l’adresse IP 192.168.1.253 .</p>
+</li>
+<li>
+<p>Double-cliquez sur le serveur DHCP que vous venez d’installer.</p>
+</li>
+<li>
+<p>Cliquez sur « configuration du service DHCP » : Une fenêtre s’ouvre et permet de définir les IP locales maximales et minimales parmi celles autorisées par le masque. Renseignez les IP comme indiqué ci-dessous :</p>
+<ul>
+<li>Pour le début de plage, tapez : 192.168.1.10</li>
+<li>Pour la fin de plage, tapez : 192.168.1.50</li>
+<li>Cocher la case « activer le service DHCP »</li>
+<li>Tapez OK</li>
+</ul>
+</li>
+<li>
+<p>Double-cliquez sur chaque ordinateur du réseau, cocher « adressage automatique par serveur DHCP » sauf sur le serveur DHCP qui doit être configuré en statique.</p>
+</li>
+<li>
+<p>Lancez à nouveau une simulation. Si vous avez bien gardé les adresses IP comme noms de vos matériels, vous voyez immédiatement l’adresse IP assignée par le serveur DHCP.</p>
+</li>
+<li>
+<p>Ajouter un portable dans ce réseau, le configurer automatiquement grâce au DHCP, et vérifier les connexions avec les autres matériels avec des ping.</p>
+</li>
+</ul>
+<p>Résultat obtenu : </p>
+<p><img alt="dhcp1" src="./img/dhcp1.png" /></p>
+<h2 id="deux-reseaux">Deux réseaux</h2>
+<blockquote>
+<p>De nombreuses raisons peuvent amener à connecter plusieurs réseaux entre eux. Pour notre activité, nous prendrons l’exemple de deux réseaux locaux internes à notre lycée (réseau pédagogique et réseau administratif).
+Pour des questions matérielles et de sécurité, il est préférable de séparer ces deux réseaux, tout en créant une liaison entre eux pour les relier (car on peut parfois avoir besoin d’échanges de données entre ces réseaux). Le lien entre ces réseaux se fait matériellement à l’aide d’un routeur. </p>
+</blockquote>
+<h3 id="deux-reseaux-separes">Deux réseaux séparés</h3>
+<p><img alt="td2" src="./img/td2_res1.png" /></p>
+<ul>
+<li>
+<p>En mode conception, ajouter un routeur (sélectionner 2 interfaces, c’est à dire deux prises RJ45) puis ajouter un switch, une machine de type portable et une autre de type ordinateur « tour ». Paramétrer leurs interfaces réseaux avec les adresses IP 192.168.2.1 pour le portable et 192.168.2.2 pour l’ordinateur « tour », et avec les masques 255.255.255.0</p>
+</li>
+<li>
+<p>En mode simulation, sur la machine 192.168.1.10, tester les connexions vers les autres machines avec la commande ping.</p>
+</li>
+</ul>
+<p>8) Quelles sont les machines qui ne peuvent pas être atteintes ?</p>
+<blockquote>
+<p>Chaque ordinateur d’un réseau doit connaitre l’adresse IP du routeur pour pouvoir lui transmettre les paquets n’appartenant pas à son réseau. Cette adresse est renseignée dans le champ Gateway (ou passerelle) de chaque ordinateur.</p>
+</blockquote>
+<ul>
+<li>
+<p>En mode conception, Faire un clic droit sur le routeur puis configurer ses deux interfaces (c’est-à-dire les fils) en leur assignant la dernière adresse disponible de chaque réseau concerné. Quand vous cliquez sur une interface, elle apparaît en vert, ce qui permet de ne pas se tromper d’adresse.</p>
+</li>
+<li>
+<p>En mode simulation, sur la machine 192.168.1.10, tester à nouveau les connexions vers les machines injoignables avant la configuration du routeur. Le problème est-il résolu ?</p>
+</li>
+<li>
+<p>Il faut donc finaliser la configuration de ces réseaux. En mode conception, renseigner la passerelle (ou gateway en anglais) de chaque ordinateur. Pour cela, il faut commencer par décocher l’adressage automatique par serveur DHCP. Vous pourrez tous les recocher à la fin lorsque vous aurez terminé.</p>
+</li>
+</ul>
+<p>⚠️ Attention, chaque réseau possède sa propre passerelle !</p>
+<p>L’adresse IP de la passerelle pour un matériel donné est la première qui est rencontrée sur le routeur utilisé pour « sortir » du réseau. Par exemple la passerelle pour le portable 192.168.1.10 est 192.168.1.254</p>
+<ul>
+<li>
+<p>En mode simulation, vérifier que toutes les machines peuvent désormais être atteintes depuis 192.168.1.10 avec la commande ping.</p>
+</li>
+<li>
+<p>Effectuer un traceroute (ligne de commande) de la machine 192.168.1.10 vers le portable 192.168.2.1. Noter le chemin parcouru par les paquets de données entre ces deux machines.</p>
+</li>
+<li>
+<p>Effectuer de même d’autres essais de traceroute de la machine 192.168.2.1 vers des machines du réseau 192.168.1.0</p>
+</li>
+</ul>
+<p>9) Effectuer un traceroute (ligne de commande) de la machine 192.168.2.1 vers la machine 192.168.2.2. Que constatez-vous ?</p>
+<p>Sauvegarder le fichier <code>ReseauxAvecRouteur.fls</code>.</p>
+<h3 id="on-relie-un-reseau-a-un-serveur">On relie un réseau à un serveur</h3>
+<p>Sauvegarder le fichier précédent sous un autre nom, par exemple ReseauxAvecRouteurServeur.fl. Le modifier pour obtenir la configuration suivante:</p>
+<p><img alt="dhcp" src="./img/dhcp.png" /></p>
+<p>Compléter les configurations sachant que :</p>
+<p>Réseau du serveur : 200.200.200.0<br />
+Serveur : 200.200.200.200<br />
+Masque 255.255.255.0<br />
+Passerelle : 200.200.200.254</p>
+<p>Tester des ping d’une machine du réseau 192.168.1.0 vers le serveur, et inversement.</p>
+<h2 id="le-web-et-les-echanges">Le WEB et les échanges.</h2>
+<h3 id="comment-ajouter-un-serveur-dns">Comment ajouter un serveur DNS ?</h3>
+<p>Dans cette section, nous allons ajouter un serveur DNS qui va traduire des noms de domaines en adresse IP.</p>
+<p><img alt="td3" src="./img/td3_res1.png" /></p>
+<ul>
+<li>Nous voulons créer la configuration ci-dessus. En mode conception, ajouter l’ordinateur « tour » et essayer de le relier au routeur. Le message « Il n’y a plus de port disponible » apparaît.</li>
+</ul>
+<p>Double-cliquer sur le routeur puis Configurer &gt; Gérer les connections. En cliquant sur +, ajouter une troisième interface locale. Cliquer sur le bouton situé en bas Fermer (et pas sur la croix) et se rendre dans l’onglet correspondant pour lui attribuer l’adresse IP 192.168.0.254.</p>
+<p><img alt="connexions" src="./img/connexions.png" /></p>
+<ul>
+<li>
+<p>Relier l’ordinateur ajouté au routeur. Attribuer l’adresse IP 192.168.0.1 à cet ordinateur et n’oubliez pas de renseigner l’adresse de la passerelle.</p>
+</li>
+<li>
+<p>En mode simulation, vérifier avec quelque ping la bonne connexion entre les différentes machines.</p>
+</li>
+<li>
+<p>En mode simulation, ajouter un serveur DNS à ce nouvel ordinateur.</p>
+</li>
+</ul>
+<p><img alt="dns" src="./img/dns.png" /></p>
+<ul>
+<li>Configurer ce serveur DNS en cliquant sur « DNS Serveur DNS ».</li>
+</ul>
+<p><img alt="config_dns" src="./img/config_dns.png" /></p>
+<p>Dans le champ "Nom de domaine" ajouter le nom de domaine www.nsi.fr et dans le champ Adresse IP ajouter 192.168.2.2 (l’autre ordinateur « tour » de notre réseau qui sera notre serveur web). Cliquer sur « Ajouter ».</p>
+<ul>
+<li>
+<p>Démarrer le serveur DNS.</p>
+</li>
+<li>
+<p>Configurer le champ DNS des différents ordinateurs portables en précisant l’adresse IP du serveur DNS créé.</p>
+</li>
+</ul>
+<h3 id="comment-ajouter-un-serveur-web-sur-notre-reseau">Comment ajouter un serveur web sur notre réseau ?</h3>
+<p>On veut maintenant héberger nos pages web sur un serveur de notre réseau. Ce serveur devra être accessible par toutes nos machines, via l’URL www.nsi.fr. Nous choisissons la machine 192.168.2.2 comme serveur.</p>
+<p>Sur le serveur 192.168.2.2 :</p>
+<ul>
+<li>Enregistrer le précédent réseau, comprenant le serveur DNS, sous un autre nom (ex : ServeurWeb.fls)</li>
+<li>Passer en mode simulation et installer un serveur Web et un éditeur de texte sur la machine 192.168.2.2.</li>
+</ul>
+<p><img alt="inst_web" src="./img/inst_web.png" /></p>
+<ul>
+<li>
+<p>Démarrer le serveur web.</p>
+</li>
+<li>
+<p>A l’aide de l’éditeur de texte (Menu Fichier / Ouvrir), modifier le code HTML du fichier index.html dans le dossier webserver qui est la page retournée par défaut aux clients et ENREGISTRER la modification (avec Fichier puis enregistrer)</p>
+</li>
+<li>
+<p>En mode simulation, effectuer un ping www.nsi.fr à partir de différentes machines du réseau (sur lesquelles on aura installé la ligne de commande). Vers quel ordinateur vont-ils se connecter ?</p>
+</li>
+<li>
+<p>Si tout va bien, l’aventure se termine avec 0 paquet perdu !</p>
+</li>
+</ul>
+<p>Sur le client 192.168.1.10 :</p>
+<ul>
+<li>Installer un client Web (navigateur web) sur la machine 192.168.1.10.</li>
+<li>Démarrer le navigateur et saisir l’URL www.nsi.fr dans la barre d’adresse, pour envoyer une requête HTTP au serveur Web. La page d’accueil modifiée du serveur devrait s’afficher.</li>
+</ul>
+<p><img alt="page" src="./img/page.png" /></p>
+<h3 id="observation-des-echanges">Observation des échanges</h3>
+<ul>
+<li>Activer l’affichage des données sur la machine 192.168.1.10 avec un clic droit</li>
+<li>Au besoin, relancer la requête HTTP précédente (www.nsi.fr) à l’aide du navigateur puis analyser l’échange de données.</li>
+</ul>
+<p>Vous devriez obtenir un échange équivalent à celui-ci-dessous.</p>
+<p>Pour la suite des questions, on se servira des numéros de ligne de cette capture d’écran. Notre machine 192.168.1.10 a dans la simulation ci-dessous l’adresse IP 192.168.1.1</p>
+<p><img alt="echanges" src="./img/echanges.png" /></p>
+<p>10) A quoi servent les échanges lignes 1 et 2 (protocole ARP) ?
+Cocher la ou les affirmations correctes</p>
+<pre><code>☐Récupérer l'@ MAC du routeur
+☐Récupérer l'@ MAC du serveur DNS
+☐Interroger le serveur DNS pour récupérer l'@ IP de nsi.fr
+☐Afficher la page web NSI
+</code></pre>
+<p>11) A quoi servent les échanges lignes 3 et 4 ?
+Cocher la ou les affirmations correctes</p>
+<pre><code>☐Interroger le serveur web nsi
+☐Interroger le serveur DNS pour récupérer l'@ IP de nsi.fr
+☐Afficher la page web NSI
+☐Récupérer l'@ MAC du serveur DNS
+</code></pre>
+<p>On s'intéresse à la ligne 3 et plus particulièrement aux 4 couches du modèle TCP/IP qui forme la trame Ethernet suivante.
+<img alt="encapsulation" src="./img/encaps.png" /></p>
+<p>12) En partant de la machine 192.168.1.1 <br />
+Dans quel sens s'encapsulent les données pour former la trame Ethernet ?
+Cocher la ou les affirmations correctes:</p>
+<pre><code>☐Internet Réseau Transport Application
+☐Application Transport Internet Réseau
+☐Réseau Internet Transport Application
+☐Réseau Transport Internet Application
+</code></pre>
+<p>13) Inscrire dans les cases le nom de la couche TCP/IP
+<img alt="trame" src="./img/trame.png" /></p>
+<p>On peut représenter l’ouverture d’une connexion TCP par le schéma ci-dessous. 
+<img alt="syn" src="./img/syn.png" /></p>
+<p>14) Retrouver les lignes correspondant à cette ouverture de connexion TCP</p>
+<p>15) Quelles lignes envoient le fichier index.html que l'on a modifié sur le serveur NSI ?</p>
+<h2 id="protocole-du-bit-alterne">Protocole du bit alterné</h2>
+<p>Ce paragraphe a été réalisé par Gilles LASSUS</p>
+<p>Ce protocole est un exemple simple de fiabilisation du transfert de données.</p>
+<h3 id="contexte">Contexte</h3>
+<ul>
+<li>Alice veut envoyer à Bob un message M, qu'elle a prédécoupé en sous-messages M0, M1, M2,...</li>
+<li>Alice envoie ses sous-messages à une cadence Δt fixée (en pratique, les sous-messages partent quand leur acquittement a été reçu ou qu'on a attendu celui-ci trop longtemps : on parle alors de timeout)</li>
+</ul>
+<h3 id="situation-ideale">Situation idéale</h3>
+<p><img alt="ideal" src="./img/ideale_copie.jpg" /></p>
+<p>Dans cette situation, les sous-messages arrivent tous à destination dans le bon ordre. La transmission est correcte.</p>
+<h3 id="situation-reelle">Situation réelle</h3>
+<p>Mais parfois, les choses ne se passent pas toujours aussi bien. Car si on maîtrise parfaitement le timing de l'envoi des sous-messages d'Alice, on ne sait pas combien de temps vont mettre ces sous-messages pour arriver, ni même (attention je vais passer dans un tunnel) s'ils ne vont pas être détruits en route.</p>
+<p><img alt="realite" src="./img/realite_copie.jpg" /></p>
+<p>Le sous-message M0 est arrivé après le M1, le message M2 n'est jamais arrivé...</p>
+<p>Que faire ?</p>
+<p>Écartons l'idée de numéroter les sous-messages, afin que Bob puisse remettre dans l'ordre les messages arrivés, ou même redemander spécifiquement des sous-messages perdus. C'est ce que réalise le protocole TCP (couche 4 — transport), c'est très efficace, mais cher en ressources. Essayons de trouver une solution plus basique.</p>
+<h3 id="solution-naive">Solution naïve...</h3>
+<p>Pourquoi ne pas demander à Bob d'envoyer un signal pour dire à Alice qu'il vient bien de recevoir son sous-message ? Nous appelerons ce signal ACK (comme acknowledgement, traduisible par «accusé de réception»). Ce signal ACK permettra à Alice de renvoyer un message qu'elle considérera comme perdu :</p>
+<p>N'ayant pas reçu le ACK consécutif à son message M1, Alice suppose (avec raison) que ce message n'est pas parvenu jusqu'à Bob, et donc renvoie le message M1.</p>
+<h3 id="mais-peu-efficace">Mais peu efficace...</h3>
+<p><img alt="conv" src="./img/naivebad_copie.jpg" /></p>
+<p>Le deuxième ACK de Bob a mis trop de temps pour arriver (ou s'est perdu en route) et donc Alice a supposé que son sous-message M1 n'était pas arrivé. Elle l'a donc renvoyé, et Bob se retrouve avec deux fois le sous-message M1. La transmission est incorrecte. En faisant transiter un message entre Bob et Alice, nous multiplions par 2 la probabilité que des problèmes techniques de transmission interviennent. Et pour l'instant rien ne nous permet de les détecter.</p>
+<h3 id="bob-prend-le-controle">Bob prend le contrôle</h3>
+<p>Bob va maintenant intégrer une méthode de validation du sous-message reçu. Il pourra décider de le garder ou de l'écarter. Le but est d'éviter les doublons.</p>
+<p>Pour réaliser ceci, Alice va rajouter à chacun de ses sous-messages un bit de contrôle, que nous appelerons FLAG (drapeau). Au départ, ce FLAG vaut 0. Quand Bob reçoit un FLAG, il renvoie un ACK égal au FLAG reçu.</p>
+<p>Alice va attendre ce ACK contenant le même bit que son dernier FLAG envoyé :</p>
+<ul>
+<li>tant qu'elle ne l'aura pas reçu, elle continuera à envoyer le même sous-message, avec le même FLAG.</li>
+<li>dès qu'elle l'a reçu, elle peut envoyer un nouveau sous-message en inversant («alternant») le bit de son dernier FLAG (d'où le nom de ce protocole).</li>
+</ul>
+<p>Bob, de son côté, va contrôler la validité de ce qu'il reçoit : il ne gardera que les sous-messages dont le FLAG est égal à l'inverse de son dernier ACK. C'est cette méthode qui lui permettra d'écarter les doublons.</p>
+<p>Observons ce protocole dans plusieurs cas :</p>
+<h4 id="cas-ou-le-sous-message-est-perdu">Cas où le sous-message est perdu</h4>
+<p><img alt="alt2" src="./img/alt2_copie.jpg" /></p>
+<h4 id="cas-ou-le-ack-est-perdu">Cas où le ACK est perdu</h4>
+<p><img alt="alt1" src="./img/alt1_copie.jpg" /></p>
+<p>Le protocole a bien détecté le doublon du sous-message M1.</p>
+<h4 id="cas-ou-un-sous-message-est-en-retard">Cas où un sous-message est en retard</h4>
+<p><img alt="alt3" src="./img/alt3_copie.jpg" /></p>
+<p>Le protocole a bien détecté le doublon du sous-message M1... mais que se passerait-il si notre premier sous-message M1 était encore plus en retard ?</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>Le protocole du bit alterné a longtemps été utilisé au sein de la couche 2 du modèle OSI (distribution des trames Ethernet). Simple et léger, il peut toutefois être mis en défaut, ce qui explique qu'il ait été remplacé par des protocoles plus performants.</p>
+<h2 id="interconnexion-de-deux-reseaux">Interconnexion de deux réseaux</h2>
+<p>Rappel:<br />
+Les « routeurs » sont aussi nommés « passerelles » ou « gateway ».</p>
+<h3 id="interconnexion-de-deux-reseaux_1">Interconnexion de deux réseaux.</h3>
+<p>On donne le réseau ci-dessous :</p>
+<p>⚠️ Ne pas lancer de simulation avec le logiciel Filius avant d’avoir complété les questions a), b) et c)</p>
+<p><img alt="deux" src="./img/deux_res.png" /></p>
+<p>Pour chaque réseau, on choisit :</p>
+<p>Pour les adresses IP des routeurs : les dernières possibles.<br />
+Pour l’adresse IP du serveur DHCP : la dernière possible, une fois celle des routeurs attribuées.</p>
+<p>Compléter les adresses IP ci-dessous</p>
+<p>14) Pour le réseau 192.168.1.0</p>
+<p>Passerelle :<br />
+Serveur DHCP :  </p>
+<p>15) Pour le réseau 10.0.0.0</p>
+<p>Passerelle « Routeur 0 » :<br />
+Passerelle « Routeur 1 » :  </p>
+<p>16) Pour le réseau 192.168.2.0</p>
+<p>Passerelle :<br />
+Serveur DHCP :  </p>
+<p>Construire le réseau ci-dessus, et configurer tous les équipements. (Utiliser le DHCP) Pour les routeurs, dans l’onglet général, il ne faut pas cocher « routage automatique »</p>
+<p>17) Vérifier avec des ping, la connexion entre :</p>
+<p>deux postes du réseau 192.168.1.0<br />
+deux postes du réseau 192.168.2.0<br />
+un poste du réseau 192.168.1.0, et un poste du réseau 192.168.2.0 . Que constatez-vous ?</p>
+<h4 id="table-de-routage">Table de routage</h4>
+<p>A chaque routeur, il faut indiquer l’adresse des réseaux distants (réseaux non reliés au routeur), et celle de la passerelle : la première adresse IP du routeur (entrée) qu’il faudra choisir. L'interface est l'adresse IP par laquelle on sort du routeur pour aller vers le réseau distant.</p>
+<p>18) Compléter ci-dessous pour le routeur 0:
+|Réseau de destination |    Masque |    Passerelle |    Via l’interface |
+|----------------------|-----------|---------------|--------------------|
+|192.168.2.0 |  255.255.255.0 | | | </p>
+<p>19) Compléter ci-dessous pour le routeur 1:
+|Réseau de destination |    Masque |    Passerelle |    Via l’interface |
+|----------------------|-----------|---------------|--------------------|
+|192.168.1.0 |  255.255.255.0 | | | </p>
+<p>En mode conception, compléter les tables de routage de chaque routeur. Dans l’onglet Général, la case « routage automatique » doit être décochée. Dans l’onglet « table de routage », observez les lignes déjà remplies. Il n’est pas possible de les modifier. Vous pourrez par la suite décocher « Afficher toutes les lignes ».
+Remarque</p>
+<blockquote>
+<p>Pour la première fois nous avons utilisé l’adresse des réseaux.</p>
+</blockquote>
+<p>Vérifier avec des pings la connexion entre un poste du réseau 192.168.1.0, et un poste du réseau 192.168.2.0. La mise à jour de la table de routage est parfois lente.</p>
+<h3 id="interconnexion-de-quatre-reseaux">Interconnexion de quatre réseaux.</h3>
+<p>Enregistrer sous un autre nom le fichier du I. , puis le modifier pour obtenir le réseau suivant. Procéder de manière analogue à celle utilisée au I. Configurer tous les matériels, puis vérifier avec des pings.</p>
+<p>Commencer par compléter ci-dessous avant de créer le projet.</p>
+<p><img alt="quatre" src="./img/quatre_res.png" /></p>
+<p>20) Compléter ci-dessous pour le réseau 192.168.1.0</p>
+<p>Passerelle « Routeur 0 » :<br />
+Serveur DHCP :</p>
+<p>21) Compléter ci-dessous pour le réseau 10.0.0.0</p>
+<p>Passerelle « Routeur 0 » :<br />
+Passerelle « Routeur 2 » :</p>
+<p>22) Compléter ci-dessous pour le réseau 172.16.0.0</p>
+<p>Passerelle « Routeur 2 » :<br />
+Passerelle « Routeur 1 » :</p>
+<p>23) Compléter ci-dessous pour le réseau 192.168.2.0</p>
+<p>Passerelle « Routeur 1 » :<br />
+Serveur DHCP :</p>
+<p>24) Compléter ci-dessous pour le routeur 0 :
+|Réseau de destination |    Masque |    Passerelle |    Via l’interface |
+|----------------------|-----------|---------------|--------------------|
+|192.168.2.0 |  255.255.255.0 | | | 
+|172.16.0.0  |  255.255.0.0  | | |</p>
+<p>25) Compléter ci-dessous pour le routeur 1 :
+|Réseau de destination |    Masque |    Passerelle |    Via l’interface |
+|----------------------|-----------|---------------|--------------------|
+|192.168.1.0 |  255.255.255.0 | | |   <br />
+|10.0.0.0 | 255.0.0.0 | | | </p>
+<p>26) Compléter ci-dessous pour le routeur 2 :
+|Réseau de destination |    Masque |    Passerelle |    Via l’interface |
+|----------------------|-----------|---------------|--------------------|
+|192.168.1.0 |  255.255.255.0 | | |       <br />
+|192.168.2.0 |  255.255.255.0 | | |     </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

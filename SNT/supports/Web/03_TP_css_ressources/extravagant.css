@@ -1,0 +1,133 @@
+/* extravagant.css */
+
+:root{
+  --ink: #0b1020;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", system-ui, sans-serif;
+  line-height: 1.6;
+  color: #fff;
+  padding: 36px 20px;
+
+  /* Fond ultra-coloré */
+  background:
+    radial-gradient(1000px 600px at 15% 15%, rgba(255, 0, 153, .55), transparent 60%),
+    radial-gradient(900px 600px at 85% 20%, rgba(0, 255, 255, .55), transparent 60%),
+    radial-gradient(900px 700px at 55% 90%, rgba(255, 255, 0, .40), transparent 60%),
+    linear-gradient(135deg, #111827, #050816 60%, #0b1020);
+}
+
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .12;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.25) 0 1px, transparent 1px 10px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.18) 0 1px, transparent 1px 12px);
+}
+
+body > *{
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1, h2, p, img{
+  position: relative;
+  z-index: 1;
+}
+
+h1{
+  margin: 0 0 14px;
+  padding: 18px 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.10);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255,255,255,.18);
+
+  font-size: clamp(2.2rem, 3.2vw, 3.2rem);
+  letter-spacing: .5px;
+
+  text-shadow:
+    0 2px 0 rgba(0,0,0,.35),
+    0 0 16px rgba(0,255,255,.35),
+    0 0 22px rgba(255,0,153,.35);
+}
+
+h2{
+  margin: 22px 0 10px;
+  padding: 10px 14px;
+  display: inline-block;
+  border-radius: 999px;
+
+  background: linear-gradient(90deg, rgba(255,0,153,.55), rgba(0,255,255,.55));
+  border: 1px solid rgba(255,255,255,.25);
+
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: 1rem;
+}
+
+p{
+  margin: 0 0 14px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.18);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 40px rgba(0,0,0,.35);
+}
+
+strong{
+  font-weight: 900;
+  background: linear-gradient(90deg, #fff, #ffd6ff, #d6ffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+a{
+  color: #001018;
+  font-weight: 900;
+  text-decoration: none;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #00ffff, #ff0099, #ffee00);
+  box-shadow: 0 10px 26px rgba(0,0,0,.35);
+  display: inline-block;
+  transform: translateY(-1px);
+}
+
+a:hover{
+  filter: saturate(1.2) contrast(1.1);
+  transform: translateY(-2px) rotate(-1deg);
+}
+
+img{
+  display: block;
+  width: min(360px, 100%);
+  height: auto;
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 22px;
+
+  background: rgba(255,255,255,.10);
+  border: 2px solid rgba(255,255,255,.22);
+  box-shadow:
+    0 18px 60px rgba(0,0,0,.45),
+    0 0 0 6px rgba(255,0,153,.18),
+    0 0 0 12px rgba(0,255,255,.12);
+
+  transform: rotate(-1.5deg);
+}
+
+img:hover{
+  transform: rotate(1deg) scale(1.02);
+}
