@@ -8,8 +8,8 @@ class Noeud:
         self.droite = None
         
 class ArbreBinaireRecherche:
-    def __init__(self):
-        self.racine = None
+    def __init__(self, racine = None):
+        self.racine = racine
         
     def est_vide(self):
         return self.racine is None
@@ -166,8 +166,8 @@ for valeur in valeurs[:15]:
     FORET_2.inserer(valeur)
     FORET.inserer_aleatoire(valeur)
     
-FORET_DEBUT = FORET
-FORET_2_DEBUT = FORET_2
+FORET_DEBUT = ArbreBinaire(FORET.racine)
+FORET_2_DEBUT = ArbreBinaireRecherche(FORET_2.racine)
 
 FORET.sorcier()
 
