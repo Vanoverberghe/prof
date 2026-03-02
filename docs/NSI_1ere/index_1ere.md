@@ -89,6 +89,10 @@
 
 [images](./supports/Web/images%20(1).zip)
 
+[Synthese bases du web](./supports/Web/Synthese.pdf)
+
+[DOM](./supports/Web/DOM.pdf)
+
 ## Projets
 
 [Sujet projet motus](./supports/Projets/motus.pdf)

@@ -103,6 +103,8 @@ class ArbreBinaire:
             self._inserer_aleatoire(self.racine, nouveau_noeud)
             
     def sous_arbre_gauche(self):
+        print(type(self.racine.gauche))
+        print(type(self.racine))
         return self.racine.gauche
     
     def sous_arbre_droit(self):
