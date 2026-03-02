@@ -167,7 +167,7 @@ for valeur in valeurs[:15]:
     FORET.inserer_aleatoire(valeur)
     
 FORET_DEBUT = ArbreBinaire(FORET.racine)
-FORET_2_DEBUT = ArbreBinaireRecherche(FORET_2.racine)
+FORET_2_DEBUT = FORET_2
 
 FORET.sorcier()
 

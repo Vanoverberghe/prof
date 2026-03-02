@@ -25,7 +25,7 @@ Commencons votre aventure, dans votre shell vous aller agir sur la variable FORE
 Il n'y a pas de retour en arrière, si vous arriver à un cul de sac retourner au début en faisant :
 
 ```python
-FORET = FORET_DEBUT
+FORET = ArbreBinaire(FORET_DEBUT.racine)
 ```
 
 Ne modfiez pas la variable FORET_DEBUT
