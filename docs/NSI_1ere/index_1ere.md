@@ -93,6 +93,9 @@
 
 [DOM](./supports/Web/DOM.pdf)
 
+[GET POST et formulaires](./supports/Web/TP_Get_Post.pdf)
+
+
 ## Projets
 
 [Sujet projet motus](./supports/Projets/motus.pdf)
