@@ -85,6 +85,8 @@
 
 ## Web
 
+[Premier TP (digicode)](./supports/Web/tp_web.zip)
+
 [TP ampoule](./supports/Web/construction_site_web.pdf)
 
 [images](./supports/Web/images%20(1).zip)
@@ -95,6 +97,13 @@
 
 [GET POST et formulaires](./supports/Web/TP_Get_Post.pdf)
 
+[tpForm](./supports/Web/tpForm.zip)
+
+## Algorithmes de Tris
+
+[Cours d'introduction](./supports/Tris/Tris_cours.pdf)
+
+[TP tris Python](./supports/Tris/TP_algo_02_tris.pdf)
 
 ## Projets
 

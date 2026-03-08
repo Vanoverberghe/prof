@@ -109,7 +109,7 @@
 
 [Exercices sur feuille](./supports/Graphes/Graphes/Exercices.pdf)
 
-[TP graphviz](./supports/Graphes/Graphes/TP_1.pdf)
+[TP networkX](./supports/Graphes/Graphes/TP_NetworkX.pdf)
 
 [TP Manipulation de graphes](./supports/Graphes/Graphes/TP_2.pdf)
 
