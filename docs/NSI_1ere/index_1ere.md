@@ -105,6 +105,10 @@
 
 [TP tris Python](./supports/Tris/TP_algo_02_tris.pdf)
 
+[Tri sélection étapes par étapes](./supports/Tris/SR_01_tri_selection.pdf)
+
+[Tri insertion étapes par étapes](./supports/Tris/SR_02_tri_insertion.pdf)
+
 ## Projets
 
 [Sujet projet motus](./supports/Projets/motus.pdf)
