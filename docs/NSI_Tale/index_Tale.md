@@ -27,6 +27,13 @@
 
 [France-IOI](https://www.france-ioi.org/algo/chapters.php)
 
+[1](./supports/ep-bac-nsi-sujet1zip-116337.zip)
+
+[2](./supports/ep-bac-nsi-sujet2zip-116334.zip)
+
+[3](./supports/ep-bac-bsi-sujet3zip-116331.zip)
+
+
 ## Programmation orientée objet 
 
 [Cours POO](./supports/POO/cours_objets.pdf)
