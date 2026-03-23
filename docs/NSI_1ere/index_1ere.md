@@ -111,6 +111,8 @@
 
 [Algorithme de recherche dichotomique](./supports/Tris/Recherche_dichotomique.pdf)
 
+[Recherche dichotomique étapes par étapes](./supports/Tris/SR_07_dichotomie_non_recursive.pdf)
+
 [TP Dichotomie](./supports/Tris/TP_algo_03_recherche_dichotomique.pdf)
 
 ## Projets
