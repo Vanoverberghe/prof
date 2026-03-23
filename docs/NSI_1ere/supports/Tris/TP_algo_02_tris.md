@@ -7,12 +7,10 @@ Trier des données est une opération de base présente dans tout traitement. Di
 
 C'est un tri sur place, c'est-à-dire que la liste non triée est modifiée au fur et à mesure du tri lors de la mise en ordre. Il n'y a donc qu'une seule liste en mémoire de l'ordinateur.
 
-Le tri est illustré sur le document : [pdf](./SR_01_tri_selection.pdf)
-
 Un algorithme possible est le suivant.
 
 ```
-Pour i allant de 0 à n-1
+Pour i allant de 0 à n-2
     indice_min = i
 
     Pour j allant de i+1 à n
@@ -36,9 +34,7 @@ Puis le tester sur une liste contenant 30 nombres aléatoires qu'on pourra crée
 
 ## II. Tri par insertion
 
-C'est aussi un tri sur place.
-
-Le tri est illustré sur le document : [pdf](./SR_02_tri_insertion.pdf)
+C'est aussi un tri sur place.&
 
 Un algorithme possible est le suivant.
 

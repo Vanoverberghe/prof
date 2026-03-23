@@ -109,6 +109,10 @@
 
 [Tri insertion étapes par étapes](./supports/Tris/SR_02_tri_insertion.pdf)
 
+[Algorithme de recherche dichotomique](./supports/Tris/Recherche_dichotomique.pdf)
+
+[TP Dichotomie](./supports/Tris/TP_algo_03_recherche_dichotomique.pdf)
+
 ## Projets
 
 [Sujet projet motus](./supports/Projets/motus.pdf)
