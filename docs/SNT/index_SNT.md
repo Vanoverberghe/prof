@@ -1,7 +1,5 @@
 # Sciences Numérique et Technologique
 
-[0](./supports/Lilou/ma_premiere_page.html)
-
 ### les évaluations :
 
     - Votre tenue de cours ( classeur / pochette / porte-vue ) sera évalué à la fin de chaque séquence. Ceci constituera un bonus / malus, de 0 à 2, dans votre moyenne de SNT. Vous serez évalué sur le soin et le contenu.

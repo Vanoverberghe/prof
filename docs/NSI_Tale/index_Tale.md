@@ -122,6 +122,10 @@
 
 [Graphe.py](./supports/Graphes/Graphes/src/Graphe.py)
 
+[Algorithmes des graphes](./supports/Graphes/Algorithmes_Graphes/Cours_algo_graphe.pdf)
+
+[TD Algorithmes](./supports/Graphes/Algorithmes_Graphes/Graphes_Algorithmes.pdf)
+
 ## Projets
 
 [Morpion](./supports/Projets/tictactoe/projet.pdf)
