@@ -126,6 +126,12 @@
 
 [TD Algorithmes](./supports/Graphes/Algorithmes_Graphes/TD_algo_graphe.pdf)
 
+[TP Algos Graphes](./supports/Graphes/Algorithmes_Graphes/Reseau_social/TP_algo_graphe.pdf)
+
+[Pile](./supports/Graphes/Algorithmes_Graphes/Reseau_social/Pile.py) [File](./supports/Graphes/Algorithmes_Graphes/Reseau_social/File.py)
+
+[Reseau.py](./supports/Graphes/Algorithmes_Graphes/Reseau_social/Reseau.py)
+
 ## Projets
 
 [Morpion](./supports/Projets/tictactoe/projet.pdf)
