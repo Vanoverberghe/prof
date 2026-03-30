@@ -124,7 +124,7 @@
 
 [Algorithmes des graphes](./supports/Graphes/Algorithmes_Graphes/Cours_algo_graphe.pdf)
 
-[TD Algorithmes](./supports/Graphes/Algorithmes_Graphes/Graphes_Algorithmes.pdf)
+[TD Algorithmes](./supports/Graphes/Algorithmes_Graphes/TD_algo_graphe.pdf)
 
 ## Projets
 

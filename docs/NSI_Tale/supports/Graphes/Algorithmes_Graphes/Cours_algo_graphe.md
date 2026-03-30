@@ -44,7 +44,7 @@ En python, on pourra utiliser un prédicat qui renvoies **Vrai** si il y a un ch
 Pour savoir si un graphe contient un cycle. On utilise un parcours en profondeur.  
 En avançant dans une branche, si on retombe sur un sommet déjà visité avant de devoir revenir en arrière, alors il existe au moins un cycle.
 
-<img src='img/Cours2.png'>
+![g](./img/Cours2.png)
 
 On rappelle qu'un cycle a **au minimum** une longueur de 3. On cherche donc une étape ayant une branche de longueur d'au moins 3 et ou un sommet visité, fait partie des voisins possibles, autre que le retour en arrière.\
 Sur ce graphe, on peut par exemple faire le parcours en partant de **A**.
