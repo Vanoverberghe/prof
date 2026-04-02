@@ -1,7 +1,14 @@
 # Numérique et Sciences Informatiques 1ère
 
-[Sujet Pratique](../NSI_Tale/supports/ep-bac-nsi-sujet2zip-116334.zip)
+[3](../NSI_Tale/supports/Sujets_pratique/26_BCG_NSI_3.zip)
 
+[5](../NSI_Tale/supports/Sujets_pratique/26_BCG_NSI_5.zip)
+
+[11](../NSI_Tale/supports/Sujets_pratique/26_BCG_NSI_11.zip)
+
+[16](../NSI_Tale/supports/Sujets_pratique/26_BCG_NSI_16.zip)
+
+[22](../NSI_Tale/supports/Sujets_pratique/26_BCG_NSI_22.zip)
 
 ### Les évaluations :
 
