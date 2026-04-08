@@ -112,7 +112,7 @@
 
 [Cours bases des graphes](./supports/Graphes/Graphes/Graphes_Cours.pdf)
 
-[Cours notions des graphes](./supports/Graphes/Graphes/Cours_2.md)
+[Cours notions des graphes](./supports/Graphes/Graphes/Cours_2.pdf)
 
 [Exercices sur feuille](./supports/Graphes/Graphes/Exercices.pdf)
 
