@@ -6,6 +6,8 @@
 
 [11](../NSI_Tale/supports/Sujets_pratique/26_BCG_NSI_11.zip)
 
+[13](../NSI_Tale/supports/Sujets_pratique/26_BCG_NSI_13.zip)
+
 [16](../NSI_Tale/supports/Sujets_pratique/26_BCG_NSI_16.zip)
 
 [22](../NSI_Tale/supports/Sujets_pratique/26_BCG_NSI_22.zip)
