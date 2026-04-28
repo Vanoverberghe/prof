@@ -126,7 +126,7 @@
 
 ## Traitement de données en tables
 
-[TP CSV](./supports/Traitement_donnees/traitement_donnees_table.pdf)
+[TP CSV](./supports/Traitement_donnees/traitement_donnees_table.pdf)  
 [Fichiers à télécharger](./supports/Traitement_donnees/pokemon_stats.zip)
 
 ## Projets
