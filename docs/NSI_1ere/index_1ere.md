@@ -129,6 +129,10 @@
 [TP CSV](./supports/Traitement_donnees/traitement_donnees_table.pdf)  
 [Fichiers à télécharger](./supports/Traitement_donnees/pokemon_stats.zip)
 
+## Algorithmes gloutons
+
+[Algos Gloutons](./supports/Gloutons/Algorithmes_Gloutons.pdf)
+
 ## Projets
 
 [Sujet projet motus](./supports/Projets/motus.pdf)
