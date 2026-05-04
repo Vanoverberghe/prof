@@ -132,6 +132,10 @@
 
 [Reseau.py](./supports/Graphes/Algorithmes_Graphes/Reseau_social/Reseau.py)
 
+
+[TP Labyrinthe](./supports/Graphes/TP_Labyrinthe/TP_labyrinthe.pdf)    
+[Fichier Python](./supports/Graphes/TP_Labyrinthe/Labyrinthe.py)
+
 ## Projets
 
 [Morpion](./supports/Projets/tictactoe/projet.pdf)
