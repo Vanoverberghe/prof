@@ -50,3 +50,5 @@
 ## Géolocalisation
 
 [Cours Géo](./supports/Geolocalisation/La_Geolocalisation.pdf)
+
+[TP Geoportail](./supports/Geolocalisation/TP_02_geoportail.pdf)
