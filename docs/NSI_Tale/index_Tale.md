@@ -1,5 +1,7 @@
 # Numérique et Sciences Informatiques Tale
 
+[Banque des sujets de l'épreuve pratique avec corrigés](https://ecebac.fr/listaca.php?mat=94)
+
 ### les évaluations :
 
 > Les interrogations seront sur 1h et constituées de questions de cours et exercices rapides.
