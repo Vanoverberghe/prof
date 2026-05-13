@@ -2,6 +2,8 @@
 
 [Banque des sujets de l'épreuve pratique avec corrigés](https://ecebac.fr/listaca.php?mat=94)
 
+[Sujet entrainement Mercredi 13 Mai](./supports/Sujet_entrainement.pdf)
+
 ### les évaluations :
 
 > Les interrogations seront sur 1h et constituées de questions de cours et exercices rapides.
