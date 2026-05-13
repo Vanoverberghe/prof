@@ -4,6 +4,8 @@
 
 [Sujet entrainement Mercredi 13 Mai](./supports/Sujet_entrainement.pdf)
 
+[Cahier d'entrainement à Python](./supports/Cahoier.pdf)
+
 ### les évaluations :
 
 > Les interrogations seront sur 1h et constituées de questions de cours et exercices rapides.
