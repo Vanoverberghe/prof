@@ -129,9 +129,12 @@
 [TP CSV](./supports/Traitement_donnees/traitement_donnees_table.pdf)  
 [Fichiers à télécharger](./supports/Traitement_donnees/pokemon_stats.zip)
 
-## Algorithmes gloutons
+## Algorithmes
 
 [Algos Gloutons](./supports/Gloutons/Algorithmes_Gloutons.pdf)
+
+[Algorithmes "IA" (Knn)](./supports/Tris/TP_algo_04_algorithmes_intelligents.pdf)  
+[Fichier CSV](./supports/Tris/echantillon_taille_t_shirt.csv)
 
 ## Projets
 
