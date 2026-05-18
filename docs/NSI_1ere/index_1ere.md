@@ -1,16 +1,6 @@
 # Numérique et Sciences Informatiques 1ère
 
-[3](../NSI_Tale/supports/Sujets_pratique/26_BCG_NSI_3.zip)
-
-[5](../NSI_Tale/supports/Sujets_pratique/26_BCG_NSI_5.zip)
-
-[11](../NSI_Tale/supports/Sujets_pratique/26_BCG_NSI_11.zip)
-
-[13](../NSI_Tale/supports/Sujets_pratique/26_BCG_NSI_13.zip)
-
-[16](../NSI_Tale/supports/Sujets_pratique/26_BCG_NSI_16.zip)
-
-[22](../NSI_Tale/supports/Sujets_pratique/26_BCG_NSI_22.zip)
+[cahier de révisions](../NSI_Tale/supports/Cahoier.pdf)
 
 ### Les évaluations :
 
