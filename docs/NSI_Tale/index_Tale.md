@@ -142,6 +142,13 @@
 [TP Labyrinthe](./supports/Graphes/TP_Labyrinthe/TP_labyrinthe.pdf)    
 [Fichier Python](./supports/Graphes/TP_Labyrinthe/Labyrinthe.py)
 
+## Stratégies algorithmiques
+
+[Tri fusion étapes par étapes itératif](./supports/Algos/SR_04_fusion_non_recursive.pdf)  
+[Tri fusion étapes par étapes récursif](./supports/Algos/SR_05_fusion_recursive.pdf)
+
+[TP stratégies](./supports/Algos/tp_techniques_programmation.pdf)
+
 ## Projets
 
 [Morpion](./supports/Projets/tictactoe/projet.pdf)
