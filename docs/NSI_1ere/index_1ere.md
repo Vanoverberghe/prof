@@ -2,6 +2,12 @@
 
 [cahier de révisions](../NSI_Tale/supports/Cahoier.pdf)
 
+[5](../NSI_Tale/supports/Sujets_pratique/26_BCG_NSI_5.zip)
+
+[11](../NSI_Tale/supports/Sujets_pratique/26_BCG_NSI_11.zip)
+
+[16](../NSI_Tale/supports/Sujets_pratique/26_BCG_NSI_16.zip)
+
 ### Les évaluations :
 
 > Les interrogations seront sur 1h et constituées de questions de cours et exercices rapides.
