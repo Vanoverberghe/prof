@@ -6,6 +6,8 @@
 
 [Cahier d'entrainement à Python](./supports/Cahoier.pdf)
 
+[Correction du cahier](./supports/Correction_cahier.py)
+
 ### les évaluations :
 
 > Les interrogations seront sur 1h et constituées de questions de cours et exercices rapides.
