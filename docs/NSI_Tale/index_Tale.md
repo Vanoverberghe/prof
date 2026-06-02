@@ -8,6 +8,8 @@
 
 [Correction du cahier](./supports/Correction_cahier.py)
 
+[Entrainement pratique](./supports/sujet_13_variante.zip)
+
 ### les évaluations :
 
 > Les interrogations seront sur 1h et constituées de questions de cours et exercices rapides.
