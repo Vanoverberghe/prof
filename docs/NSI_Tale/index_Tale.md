@@ -8,7 +8,15 @@
 
 [Correction du cahier](./supports/Correction_cahier.py)
 
-[Entrainement pratique](./supports/sujet_13_variante.zip)
+[Entrainement pratique](./supports/sujet_13_variante.zip)  
+[Correction entrainement](./supports/etude_oceanographique.py)
+
+[Entrainement pratique 2](./supports/sujet_18_Hauts_de_France.zip)
+
+[Entrainement pratique 3](./supports/15_variante.zip)
+
+[Entrainement pratique 4](./supports/sujet_4.zip)
+
 
 ### les évaluations :
 
