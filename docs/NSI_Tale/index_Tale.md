@@ -143,7 +143,7 @@
 
 [Graphe.py](./supports/Graphes/Graphes/src/Graphe.py)
 
-[Algorithmes des graphes](./supports/Graphes/Algorithmes_Graphes/Cours_algo_graphe.pdf)
+[Algorithmes des graphes](./supports/Graphes/Algorithmes_Graphes/Cours_algo_graphe.md)
 
 [TD Algorithmes](./supports/Graphes/Algorithmes_Graphes/TD_algo_graphe.pdf)
 
