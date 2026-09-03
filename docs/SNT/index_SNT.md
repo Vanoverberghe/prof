@@ -7,4 +7,6 @@
 > Si une remarque sur le comportement est encore nécessaire après avoir été déplacé, cela vaudra 1h de retenue avec du travail à réaliser sous peine de retourner en retenue.
 > Si vous êtes déplacés 2 fois par période inter-vacances scolaires, vous serez placés directement en début de chaque séance de cette période. La règle de la retenue reste en place dans ce cas.
 
-[photo](./supports/Photo/Photographie_numerique.pdf)
+### La programmation Python :
+
+[Les bases de programmation](./supports/Python/python_affectation_entrees_sorties.pdf)
