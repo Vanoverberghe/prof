@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSI · Températures en Hauts-de-France · Variante S18</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    /* ══════════════════════════════════════════
+       TOKENS
+    ══════════════════════════════════════════ */
+    :root {
+      --bg:         #f0f2f5;
+      --surface:    #ffffff;
+      --surface2:   #f7f8fa;
+      --border:     #dde2ea;
+      --text:       #1a1d23;
+      --muted:      #6b7280;
+      --accent:     #1a5c96;        /* bleu Nord */
+      --accent2:    #e63946;        /* rouge signal */
+      --accent3:    #2a9d5c;        /* vert données */
+      --gold:       #d4832a;        /* ambre décennie */
+      --mono:       'DM Mono', monospace;
+      --sans:       'DM Sans', sans-serif;
+      --display:    'Syne', sans-serif;
+      --radius:     12px;
+      --shadow:     0 2px 12px rgba(0,0,0,.07);
+      --shadow-lg:  0 8px 32px rgba(0,0,0,.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ══════════════════════════════════════════
+       HERO BAND
+    ══════════════════════════════════════════ */
+    .hero {
+      background: linear-gradient(135deg, #0d2e52 0%, #1a5c96 55%, #2575b8 100%);
+      color: #fff;
+      padding: 3rem 2rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 80% 20%, rgba(100,180,255,.15) 0%, transparent 50%),
+        radial-gradient(circle at 10% 90%, rgba(255,255,255,.06) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    /* grille météo décorative */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.2rem;
+    }
+
+    .badge {
+      font-family: var(--mono);
+      font-size: .68rem;
+      padding: .2rem .7rem;
+      border-radius: 20px;
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .badge--sujet  { background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); color: #e8f0ff; }
+    .badge--var    { background: #d4832a; border: 1px solid #e09444; color: #fff; }
+    .badge--theme  { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); color: #c5d8f0; }
+
+    .hero h1 {
+      font-family: var(--display);
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin-bottom: .8rem;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: #7ec8f5;
+    }
+
+    .hero-sub {
+      font-size: .92rem;
+      color: rgba(255,255,255,.75);
+      max-width: 580px;
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      font-family: var(--mono);
+      font-size: .72rem;
+      color: rgba(255,255,255,.65);
+    }
+
+    .meta-item svg { opacity: .8; }
+
+    /* ══════════════════════════════════════════
+       LAYOUT PRINCIPAL
+    ══════════════════════════════════════════ */
+    .main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* ══════════════════════════════════════════
+       CONTEXTE CARD
+    ══════════════════════════════════════════ */
+    .context-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .context-header {
+      background: linear-gradient(90deg, #eef4fb, #f7f9fc);
+      border-bottom: 1px solid var(--border);
+      padding: .9rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+
+    .context-header svg { color: var(--accent); flex-shrink: 0; }
+
+    .context-header h2 {
+      font-family: var(--display);
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: .01em;
+    }
+
+    .context-body {
+      padding: 1.3rem 1.4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem 2rem;
+    }
+
+    @media (max-width: 600px) { .context-body { grid-template-columns: 1fr; } }
+
+    .context-body p {
+      font-size: .88rem;
+      line-height: 1.65;
+      color: #374151;
+      grid-column: 1 / -1;
+    }
+
+    /* Stations mini-map */
+    .stations-grid {
+      grid-column: 1 / -1;
+      display: flex;
+      gap: .6rem;
+      flex-wrap: wrap;
+    }
+
+    .station-chip {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      background: #eef4fb;
+      border: 1px solid #c5d8ee;
+      border-radius: 8px;
+      padding: .35rem .75rem;
+      font-family: var(--mono);
+      font-size: .72rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .station-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* Structure données */
+    .data-schema {
+      grid-column: 1 / -1;
+      background: #f7f9fc;
+      border: 1px solid #dde6f0;
+      border-radius: 8px;
+      padding: .9rem 1.1rem;
+    }
+
+    .data-schema h3 {
+      font-family: var(--display);
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+      margin-bottom: .7rem;
+    }
+
+    .schema-row {
+      display: flex;
+      align-items: baseline;
+      gap: .6rem;
+      font-size: .8rem;
+      padding: .2rem 0;
+    }
+
+    .schema-key  { font-family: var(--mono); color: var(--accent); font-weight: 500; min-width: 90px; }
+    .schema-type { font-family: var(--mono); font-size: .68rem; color: var(--accent3); background: #e8f5ee; padding: .05rem .35rem; border-radius: 4px; }
+    .schema-desc { color: var(--muted); font-size: .78rem; }
+
+    /* ══════════════════════════════════════════
+       SECTION EXERCICE
+    ══════════════════════════════════════════ */
+    .exo-section {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .exo-header {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+      padding: 1rem 1.4rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface2);
+    }
+
+    .exo-number {
+      font-family: var(--display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      min-width: 32px;
+    }
+
+    .exo-title-block h2 {
+      font-family: var(--display);
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .exo-title-block p {
+      font-size: .78rem;
+      color: var(--muted);
+      margin-top: .15rem;
+    }
+
+    .exo-body {
+      padding: 1.3rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    /* ══════════════════════════════════════════
+       QUESTION BLOCK
+    ══════════════════════════════════════════ */
+    .q-block {
+      border-left: 3px solid var(--accent);
+      padding-left: 1rem;
+    }
+
+    .q-label {
+      font-family: var(--mono);
+      font-size: .65rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--accent);
+      margin-bottom: .4rem;
+    }
+
+    .q-text {
+      font-size: .88rem;
+      line-height: 1.65;
+      color: #374151;
+    }
+
+    .q-text strong { color: var(--text); }
+
+    /* liste à puces stylée */
+    .q-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+      margin-top: .5rem;
+    }
+
+    .q-list li {
+      font-size: .86rem;
+      color: #4b5563;
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .q-list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: .75rem;
+    }
+
+    /* ══════════════════════════════════════════
+       CODE BLOCK
+    ══════════════════════════════════════════ */
+    .code-block {
+      background: #0d1b2a;
+      border-radius: 8px;
+      overflow: hidden;
+      font-family: var(--mono);
+      font-size: .78rem;
+    }
+
+    .code-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .5rem .9rem;
+      background: #0a1520;
+      border-bottom: 1px solid #1e3a5a;
+    }
+
+    .code-lang {
+      font-size: .62rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: #4a8ab5;
+      font-weight: 500;
+    }
+
+    .code-dots { display: flex; gap: .3rem; }
+    .code-dots span {
+      width: 8px; height: 8px; border-radius: 50%;
+    }
+    .code-dots span:nth-child(1) { background: #e63946; }
+    .code-dots span:nth-child(2) { background: #d4832a; }
+    .code-dots span:nth-child(3) { background: #2a9d5c; }
+
+    pre {
+      padding: 1rem;
+      overflow-x: auto;
+      line-height: 1.6;
+      color: #c8d8e8;
+    }
+
+    /* Coloration syntaxique légère */
+    .kw   { color: #7ec8f5; }    /* keywords */
+    .fn   { color: #82d9a0; }    /* functions */
+    .str  { color: #f5c87e; }    /* strings */
+    .num  { color: #f0a07a; }    /* numbers */
+    .cm   { color: #5a7a95; font-style: italic; }  /* comments */
+    .var  { color: #c8d8e8; }
+    .op   { color: #e8c87a; }    /* operators */
+    .key  { color: #b07ef0; }    /* dict keys */
+
+    /* ══════════════════════════════════════════
+       EXEMPLE INTERACTIF
+    ══════════════════════════════════════════ */
+    .example-box {
+      background: #f0f7ff;
+      border: 1px solid #c5d8ee;
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+    }
+
+    .example-box h3 {
+      font-family: var(--display);
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--accent);
+      margin-bottom: .7rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    .repl {
+      font-family: var(--mono);
+      font-size: .78rem;
+      line-height: 1.8;
+      color: #1a2e42;
+    }
+
+    .repl-in  { color: #1a5c96; }
+    .repl-out { color: #2a9d5c; font-weight: 500; }
+    .repl-none{ color: var(--muted); }
+
+    /* ══════════════════════════════════════════
+       APPEL PROF
+    ══════════════════════════════════════════ */
+    .prof-call {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      background: linear-gradient(90deg, #fff8f0, #fffcf7);
+      border: 1px solid #e8c49a;
+      border-left: 4px solid var(--gold);
+      border-radius: 8px;
+      padding: .7rem 1rem;
+      font-size: .82rem;
+      color: #7a4400;
+    }
+
+    .prof-call svg { flex-shrink: 0; color: var(--gold); }
+
+    /* ══════════════════════════════════════════
+       BUG ALERT
+    ══════════════════════════════════════════ */
+    .bug-alert {
+      display: flex;
+      gap: .7rem;
+      background: #fff5f5;
+      border: 1px solid #f5c5c5;
+      border-left: 4px solid var(--accent2);
+      border-radius: 8px;
+      padding: .85rem 1rem;
+      font-size: .84rem;
+      color: #6b1a1a;
+      line-height: 1.55;
+    }
+
+    .bug-alert svg { flex-shrink: 0; color: var(--accent2); margin-top: .1rem; }
+
+    /* ══════════════════════════════════════════
+       TABLE DE TESTS
+    ══════════════════════════════════════════ */
+    .test-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .82rem;
+    }
+
+    .test-table thead tr {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .test-table th {
+      font-family: var(--display);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: .55rem .8rem;
+      text-align: left;
+    }
+
+    .test-table td {
+      padding: .5rem .8rem;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: .76rem;
+      color: #374151;
+    }
+
+    .test-table tr:last-child td { border-bottom: none; }
+    .test-table tr:nth-child(even) td { background: #f7f9fc; }
+
+    .test-ok   { color: var(--accent3); font-weight: 600; }
+    .test-fail { color: var(--accent2); font-weight: 600; }
+
+    /* ══════════════════════════════════════════
+       DECENNIE BADGE
+    ══════════════════════════════════════════ */
+    .decade-badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: .68rem;
+      font-weight: 500;
+      background: #fef3e2;
+      border: 1px solid #f0c27a;
+      color: #7a4400;
+      border-radius: 6px;
+      padding: .1rem .45rem;
+    }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+    .footer {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .8rem;
+    }
+
+    .footer-info {
+      font-family: var(--mono);
+      font-size: .68rem;
+      color: var(--muted);
+    }
+
+    .footer-badge {
+      font-family: var(--mono);
+      font-size: .65rem;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: .25rem .7rem;
+      color: var(--muted);
+    }
+
+    /* ══════════════════════════════════════════
+       ANIMATIONS
+    ══════════════════════════════════════════ */
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .exo-section, .context-card {
+      animation: slideUp .45s ease both;
+    }
+
+    .exo-section:nth-child(2) { animation-delay: .05s; }
+    .exo-section:nth-child(3) { animation-delay: .1s;  }
+    .exo-section:nth-child(4) { animation-delay: .15s; }
+    .exo-section:nth-child(5) { animation-delay: .2s;  }
+    .exo-section:nth-child(6) { animation-delay: .25s; }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 640px) {
+      .hero { padding: 2rem 1.2rem 2rem; }
+      .main { padding: 1.2rem 1rem 3rem; }
+      .exo-body { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-badges">
+      <span class="badge badge--sujet">Sujet 18 — Variante</span>
+      <span class="badge badge--var">🌍 Hauts-de-France</span>
+      <span class="badge badge--theme">Données · Fonctions · Tests</span>
+    </div>
+    <h1>Températures en<br/><em>Hauts-de-France</em></h1>
+    <p class="hero-sub">
+      Un réseau de stations météorologiques mesure quotidiennement la température
+      de l'air dans quatre villes des Hauts-de-France. Ces données permettent
+      de suivre l'évolution du climat dans le Nord de la France.
+    </p>
+    <div class="hero-meta">
+      <span class="meta-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        1 heure
+      </span>
+      <span class="meta-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        analyse_temperatures_hdf.py
+      </span>
+      <span class="meta-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Terminale NSI · Partie pratique
+      </span>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════
+     MAIN
+══════════════════════════════════════════ -->
+<main class="main">
+
+  <!-- CONTEXTE -->
+  <div class="context-card">
+    <div class="context-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <h2>Contexte &amp; Structure des données</h2>
+    </div>
+    <div class="context-body">
+      <p>
+        En Hauts-de-France, un réseau de stations météorologiques mesure quotidiennement
+        la température de l'air dans quatre villes : <strong>Lille, Amiens, Arras</strong>
+        et <strong>Calais</strong>. Ces relevés permettent d'analyser les tendances
+        climatiques dans le Nord de la France sur plusieurs décennies.
+        Vous êtes chargé(e) de développer des outils d'analyse pour traiter ces
+        relevés et détecter les anomalies thermiques.
+      </p>
+
+      <div class="stations-grid">
+        <div class="station-chip"><span class="station-dot" style="background:#1a5c96"></span>Lille</div>
+        <div class="station-chip"><span class="station-dot" style="background:#2a9d5c"></span>Amiens</div>
+        <div class="station-chip"><span class="station-dot" style="background:#d4832a"></span>Arras</div>
+        <div class="station-chip"><span class="station-dot" style="background:#e63946"></span>Calais</div>
+      </div>
+
+      <div class="data-schema">
+        <h3>Structure d'un relevé (dictionnaire)</h3>
+        <div class="schema-row">
+          <span class="schema-key">'date'</span>
+          <span class="schema-type">str</span>
+          <span class="schema-desc">format <code>'AAAA-MM-JJ'</code> — ex : <code>'2020-08-22'</code></span>
+        </div>
+        <div class="schema-row">
+          <span class="schema-key">'station'</span>
+          <span class="schema-type">str</span>
+          <span class="schema-desc">nom de la ville — ex : <code>'Lille'</code>, <code>'Amiens'</code></span>
+        </div>
+        <div class="schema-row">
+          <span class="schema-key">'temperature'</span>
+          <span class="schema-type">float</span>
+          <span class="schema-desc">température en °C — ex : <code>18.5</code></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── EXERCICE 1 ── -->
+  <section class="exo-section">
+    <div class="exo-header">
+      <div class="exo-number">1</div>
+      <div class="exo-title-block">
+        <h2>Fonction <code>temperature_moyenne</code></h2>
+        <p>Calcul de la moyenne des relevés pour une station donnée</p>
+      </div>
+    </div>
+    <div class="exo-body">
+
+      <div class="q-block">
+        <div class="q-label">Question 1</div>
+        <p class="q-text">
+          Écrire une fonction <strong><code>temperature_moyenne(station, donnees)</code></strong> qui :
+        </p>
+        <ul class="q-list">
+          <li>Prend en paramètres une chaîne <code>station</code> (nom d'une ville) et un tableau <code>donnees</code> de dictionnaires représentant les relevés</li>
+          <li>Renvoie la <strong>température moyenne</strong> (float) pour cette station</li>
+          <li>Renvoie <code>None</code> si la station n'a aucun relevé</li>
+        </ul>
+      </div>
+
+      <div class="example-box">
+        <h3>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          Exemple d'utilisation
+        </h3>
+        <div class="repl">
+<span class="repl-in">&gt;&gt;&gt; donnees = [</span><br>
+<span class="repl-in">&nbsp;&nbsp;&nbsp;&nbsp;{'date': '2020-01-15', 'station': 'Lille',  'temperature': 3.5},</span><br>
+<span class="repl-in">&nbsp;&nbsp;&nbsp;&nbsp;{'date': '2020-07-10', 'station': 'Lille',  'temperature': 21.0},</span><br>
+<span class="repl-in">&nbsp;&nbsp;&nbsp;&nbsp;{'date': '2020-01-15', 'station': 'Amiens', 'temperature': 4.2}</span><br>
+<span class="repl-in">]</span><br>
+<span class="repl-in">&gt;&gt;&gt; temperature_moyenne('Lille', donnees)</span><br>
+<span class="repl-out">12.25</span><br>
+<span class="repl-in">&gt;&gt;&gt; temperature_moyenne('Arras', donnees)</span><br>
+<span class="repl-none">&gt;&gt;&gt;</span>
+        </div>
+      </div>
+
+      <div class="prof-call">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>✋ Appeler le professeur pour lui présenter votre réponse ou en cas de difficulté.</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── EXERCICE 2 ── -->
+  <section class="exo-section">
+    <div class="exo-header">
+      <div class="exo-number">2</div>
+      <div class="exo-title-block">
+        <h2>Fonction <code>detecter_anomalies</code></h2>
+        <p>Détection des relevés qui s'écartent trop de la moyenne</p>
+      </div>
+    </div>
+    <div class="exo-body">
+
+      <div class="q-block">
+        <div class="q-label">Question 2</div>
+        <p class="q-text">
+          Écrire une fonction <strong><code>detecter_anomalies(station, seuil, donnees)</code></strong> qui :
+        </p>
+        <ul class="q-list">
+          <li>Prend en paramètres une <code>station</code>, un <code>seuil</code> (float), et la liste <code>donnees</code></li>
+          <li>Calcule la température moyenne de la station (en utilisant la fonction de la question 1)</li>
+          <li>Renvoie la liste des <strong>dates</strong> où la température s'écarte de plus de <code>seuil</code> degrés (en valeur absolue) de cette moyenne</li>
+          <li>Renvoie une <strong>liste vide</strong> si la station n'existe pas</li>
+        </ul>
+      </div>
+
+      <div class="example-box">
+        <h3>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          Exemple d'utilisation
+        </h3>
+        <div class="repl">
+<span class="repl-in">&gt;&gt;&gt; detecter_anomalies('Lille', 8.0, donnees)</span><br>
+<span class="repl-out">['2020-01-15', '2020-07-10']</span><br>
+<span class="repl-in">&gt;&gt;&gt; detecter_anomalies('Arras', 5.0, donnees)</span><br>
+<span class="repl-out">[]</span>
+        </div>
+      </div>
+
+      <div class="prof-call">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>✋ Appeler le professeur pour lui présenter votre réponse ou en cas de difficulté.</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── EXERCICE 3 ── -->
+  <section class="exo-section">
+    <div class="exo-header">
+      <div class="exo-number">3</div>
+      <div class="exo-title-block">
+        <h2>Écriture des tests</h2>
+        <p>Tester la fonction <code>evolution_par_decennie</code> pour trouver son bug</p>
+      </div>
+    </div>
+    <div class="exo-body">
+
+      <p class="q-text" style="font-size:.85rem; color:#4b5563; line-height:1.65">
+        Le fichier <strong>analyse_temperatures_hdf.py</strong> contient la fonction
+        <code>evolution_par_decennie(station, donnees)</code>, censée calculer
+        la température moyenne par décennie (<span class="decade-badge">2010</span>,
+        <span class="decade-badge">2020</span>) pour une station.
+        Cette fonction contient un <strong>bug volontaire</strong>.
+      </p>
+
+      <div class="bug-alert">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <span>
+          <strong>Attention :</strong> la fonction contient un bug volontaire à détecter.
+          Vos tests doivent permettre de le mettre en évidence avant de le corriger à la question 4.
+        </span>
+      </div>
+
+      <div class="q-block">
+        <div class="q-label">Question 3 — Compléter les trois fonctions de test</div>
+        <ul class="q-list">
+          <li><strong>test_station_inexistante()</strong> — Tester une station qui n'existe pas dans <code>donnees_test</code> et vérifier que le résultat est un dictionnaire vide</li>
+          <li><strong>test_une_seule_decennie()</strong> — Tester la station <em>Calais</em> (données uniquement en 2020) et vérifier que le résultat ne contient qu'une seule décennie</li>
+          <li><strong>test_plusieurs_decennies()</strong> — Tester la station <em>Lille</em> (données en 2010 et 2020) et vérifier que le résultat contient bien les clés <span class="decade-badge">2010</span> et <span class="decade-badge">2020</span></li>
+        </ul>
+      </div>
+
+      <!-- Tableau aide jeu de données -->
+      <div style="overflow-x:auto; border-radius:8px; border:1px solid var(--border);">
+        <table class="test-table">
+          <thead>
+            <tr>
+              <th>Station</th>
+              <th>Décennies présentes</th>
+              <th>Nb relevés</th>
+              <th>Usage recommandé</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lille</td>
+              <td><span class="decade-badge">2010</span> &amp; <span class="decade-badge">2020</span></td>
+              <td>6</td>
+              <td><code>test_plusieurs_decennies()</code></td>
+            </tr>
+            <tr>
+              <td>Amiens</td>
+              <td><span class="decade-badge">2010</span> &amp; <span class="decade-badge">2020</span></td>
+              <td>3</td>
+              <td>Test supplémentaire possible</td>
+            </tr>
+            <tr>
+              <td>Calais</td>
+              <td><span class="decade-badge">2020</span> uniquement</td>
+              <td>3</td>
+              <td><code>test_une_seule_decennie()</code></td>
+            </tr>
+            <tr>
+              <td>« Dunkerque »</td>
+              <td>—</td>
+              <td>0</td>
+              <td><code>test_station_inexistante()</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── EXERCICE 4 ── -->
+  <section class="exo-section">
+    <div class="exo-header">
+      <div class="exo-number">4</div>
+      <div class="exo-title-block">
+        <h2>Correction du bug</h2>
+        <p>Identifier et corriger l'erreur dans <code>evolution_par_decennie</code></p>
+      </div>
+    </div>
+    <div class="exo-body">
+
+      <div class="q-block">
+        <div class="q-label">Question 4</div>
+        <p class="q-text">
+          Après avoir identifié le bug grâce à vos tests, <strong>corriger la fonction
+          <code>evolution_par_decennie</code></strong> dans le fichier Python.
+        </p>
+      </div>
+
+      <!-- Code buggé -->
+      <div class="code-block">
+        <div class="code-bar">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">Python — code à corriger</span>
+        </div>
+        <pre><span class="cm"># Extraction de l'année</span>
+<span class="var">annee</span> <span class="op">=</span> <span class="fn">int</span>(<span class="var">releve</span>[<span class="str">'date'</span>].<span class="fn">split</span>(<span class="str">'-'</span>)[<span class="num">0</span>])
+
+<span class="cm"># Calcul de la décennie  ← BUG ICI</span>
+<span class="var">decennie</span> <span class="op">=</span> (<span class="var">annee</span> <span class="op">//</span> <span class="num">10</span>)       <span class="cm"># renvoie 201 au lieu de 2010</span></pre>
+      </div>
+
+      <div class="example-box">
+        <h3>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Comportement attendu après correction
+        </h3>
+        <div class="repl">
+<span class="repl-in">&gt;&gt;&gt; evolution_par_decennie('Lille', donnees_test)</span><br>
+<span class="repl-out">{2010: 13.6, 2020: 22.63}</span><br>
+<span class="repl-in">&gt;&gt;&gt; evolution_par_decennie('Calais', donnees_test)</span><br>
+<span class="repl-out">{2020: 12.5}</span><br>
+<span class="repl-in">&gt;&gt;&gt; evolution_par_decennie('Dunkerque', donnees_test)</span><br>
+<span class="repl-out">{}</span>
+        </div>
+      </div>
+
+      <!-- Code corrigé (masqué par défaut) -->
+      <details style="margin-top:.3rem;">
+        <summary style="cursor:pointer; font-family:var(--mono); font-size:.78rem; color:var(--accent); padding:.4rem 0; user-select:none;">
+          🔍 Afficher la correction (après avoir essayé vous-même)
+        </summary>
+        <div class="code-block" style="margin-top:.6rem;">
+          <div class="code-bar">
+            <div class="code-dots"><span></span><span></span><span></span></div>
+            <span class="code-lang">Python — correction</span>
+          </div>
+          <pre><span class="cm"># Calcul de la décennie — version corrigée</span>
+<span class="var">decennie</span> <span class="op">=</span> (<span class="var">annee</span> <span class="op">//</span> <span class="num">10</span>) <span class="op">*</span> <span class="num">10</span>   <span class="cm"># 2021 → 201 → 2010 ✓</span></pre>
+        </div>
+      </details>
+
+      <div class="prof-call">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>✋ Appeler le professeur pour lui présenter votre réponse ou en cas de difficulté.</span>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-info">Baccalauréat NSI · Session 2026 · Partie pratique</span>
+  <span class="footer-badge">Variante S18 — Hauts-de-France</span>
+</footer>
+
+</body>
+</html>

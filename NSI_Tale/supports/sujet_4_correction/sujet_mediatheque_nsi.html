@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujet — Médiathèque | NSI Terminale | BAC 2026</title>
+
+  <!-- Bootstrap 5.3.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..900;1,8..60,300..900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- MathJax v3 -->
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+
+  <!-- PyScript 2026.3.1 -->
+  <script type="module" src="https://pyscript.net/releases/2026.3.1/core.js"></script>
+
+  <style>
+    :root {
+      --bg-main:       #f8f9fb;
+      --bg-panel:      #eef1f5;
+      --bg-cours:      #ffffff;
+      --accent:        #2a6496;
+      --accent-or:     #b5610a;
+      --accent-vert:   #2e7d32;
+      --accent-violet: #7b3fa8;
+      --text-main:     #1a1a1a;
+      --text-muted:    #5a6470;
+      --border-radius: 8px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin: 0;
+      padding-bottom: 4rem;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Rubik Dirt', cursive;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    h1 { font-size: 2rem; color: #111; }
+    h2 { font-size: 1.45rem; border-bottom: 2px solid var(--accent); padding-bottom: .3rem; margin-top: 2.5rem; }
+    h3 { font-size: 1.18rem; color: var(--accent-or); margin-top: 1.8rem; }
+    h4 { font-size: 1.02rem; color: var(--accent-vert); }
+
+    p { margin-bottom: 1rem; }
+
+    code, pre, .mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88em;
+    }
+
+    code {
+      background: #e8edf2;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #8b3a00;
+    }
+
+    pre {
+      background: #f0f3f7;
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.2rem;
+      border-radius: var(--border-radius);
+      overflow-x: auto;
+      color: #1a1a1a;
+    }
+
+    a { color: var(--accent); text-decoration: underline dotted; }
+    a:hover { color: var(--accent-or); }
+
+    /* ── NAVIGATION ── */
+    #navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #2a6496;
+      border-bottom: 2px solid #1a4a70;
+      padding: .45rem 1.5rem;
+      display: flex;
+      gap: .4rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    #navbar span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .78rem;
+      color: #ccddf0;
+      margin-right: auto;
+    }
+
+    #navbar a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .78rem;
+      color: #fff;
+      text-decoration: none;
+      padding: .22rem .65rem;
+      border: 1px solid #ccddf0;
+      border-radius: 4px;
+      transition: background .2s;
+    }
+
+    #navbar a:hover { background: #1a4a70; color: #fff; }
+
+    /* ── CONTENU ── */
+    .container-content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* ── EN-TÊTE DU SUJET ── */
+    .bandeau-sujet {
+      background: #2a6496;
+      color: #fff;
+      padding: 1.6rem 2rem;
+      margin-bottom: 2rem;
+      border-radius: var(--border-radius);
+    }
+
+    .bandeau-sujet h1 { color: #fff; margin: 0 0 .4rem; font-size: 1.7rem; }
+    .bandeau-sujet .meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .82rem;
+      color: #cce0f5;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: .6rem;
+    }
+
+    .bandeau-sujet .consigne {
+      margin-top: 1rem;
+      font-size: .95rem;
+      line-height: 1.7;
+      color: #eaf3fb;
+      border-top: 1px solid #4a84b6;
+      padding-top: .8rem;
+    }
+
+    /* ── ENCADRÉS ── */
+    .encadre,
+    .encadre-conseil,
+    .encadre-indice,
+    .encadre-question,
+    .encadre-appel {
+      background: #ffffff;
+      border-radius: var(--border-radius);
+      padding: 1.1rem 1.4rem;
+      margin: 1.4rem 0;
+      position: relative;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .encadre         { border-left: 4px solid var(--accent); }
+    .encadre-conseil { border-left: 4px solid var(--accent-or);    background: #fff8f0; }
+    .encadre-indice  { border-left: 4px solid var(--accent-vert);  background: #f0faf0; }
+    .encadre-question{ border-left: 4px solid var(--accent-violet);background: #faf5ff; border-top: 1px solid #c8a8e820; }
+    .encadre-appel   { border-left: 4px solid #c0392b;             background: #fff5f5; }
+
+    .encadre-prefix {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .72rem;
+      font-variant: small-caps;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: .4rem;
+      display: block;
+    }
+
+    .encadre          .encadre-prefix { color: var(--accent); }
+    .encadre-conseil  .encadre-prefix { color: var(--accent-or); }
+    .encadre-indice   .encadre-prefix { color: var(--accent-vert); }
+    .encadre-question .encadre-prefix { color: var(--accent-violet); }
+    .encadre-appel    .encadre-prefix { color: #c0392b; }
+
+    /* ── BOUTONS ── */
+    .btn-tp, .btn-tp-or, .btn-tp-vert, .btn-secondaire {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .8rem;
+      border: none;
+      border-radius: 5px;
+      padding: .42rem 1rem;
+      cursor: pointer;
+      transition: opacity .2s, transform .1s;
+      margin: .25rem .2rem;
+    }
+
+    .btn-tp         { background: var(--accent);      color: #fff; }
+    .btn-tp-or      { background: var(--accent-or);   color: #fff; }
+    .btn-tp-vert    { background: var(--accent-vert); color: #fff; }
+    .btn-secondaire { background: #eef1f5; border: 1px solid var(--accent); color: var(--text-main); }
+
+    .btn-tp:hover, .btn-tp-or:hover, .btn-tp-vert:hover, .btn-secondaire:hover {
+      opacity: .85; transform: translateY(-1px);
+    }
+
+    /* ── BADGE QUESTION ── */
+    .badge-question {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .78rem;
+      background: var(--accent-violet);
+      color: #fff;
+      border-radius: 4px;
+      padding: .15rem .65rem;
+      margin-right: .5rem;
+      vertical-align: middle;
+    }
+
+    .badge-num {
+      font-family: 'Rubik Dirt', cursive;
+      font-size: 1.25rem;
+      color: var(--accent-violet);
+      margin-right: .3rem;
+    }
+
+    /* ── INDICES ET CORRECTIONS CACHÉS ── */
+    .indice-bloc    { display: none; }
+    .correction-bloc{ display: none; }
+    .indice-bloc.visible, .correction-bloc.visible { display: block; }
+
+    /* ── TABLE DE DONNÉES ── */
+    .table-donnees {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1rem 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .82rem;
+    }
+
+    .table-donnees th {
+      background: #dce8f2;
+      color: var(--accent);
+      font-weight: 600;
+      padding: .45rem .8rem;
+      border: 1px solid #b0c8de;
+      text-align: left;
+    }
+
+    .table-donnees td {
+      border: 1px solid #d0dce8;
+      padding: .4rem .8rem;
+      vertical-align: top;
+    }
+
+    .table-donnees tr:nth-child(even) td { background: #f2f6fa; }
+
+    /* ── PIED DE PAGE ── */
+    footer {
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .78rem;
+      color: var(--text-muted);
+      padding: 2rem 1rem 1rem;
+      border-top: 1px solid #d0d8e4;
+    }
+
+    /* ── RETOUR EN HAUT ── */
+    #btn-top {
+      position: fixed;
+      bottom: 1.6rem;
+      right: 1.6rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: .45rem .9rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .78rem;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      transition: background .2s;
+      z-index: 999;
+    }
+    #btn-top:hover { background: #1a4a70; }
+
+    /* ── SÉPARATEUR ── */
+    .sep { border: none; border-top: 1px solid #d0d8e4; margin: 2rem 0; }
+
+    /* ── PyScript terminal ── */
+    py-terminal {
+      display: block;
+      background: #1a1f2e;
+      color: #a8d8a8;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .82rem;
+      border-radius: var(--border-radius);
+      padding: .8rem 1rem;
+      margin-top: .5rem;
+      min-height: 3rem;
+      max-height: 14rem;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <span>NSI Terminale — Sujet pratique</span>
+  <a href="#contexte">Contexte</a>
+  <a href="#fichiers">Fichiers</a>
+  <a href="#q1">Question 1</a>
+  <a href="#q2">Question 2</a>
+  <a href="#q3">Question 3</a>
+  <a href="#q4">Question 4</a>
+</nav>
+
+<!-- CONTENU PRINCIPAL -->
+<div class="container-content">
+
+  <!-- EN-TÊTE -->
+  <div class="bandeau-sujet">
+    <h1>Gestion d'une médiathèque</h1>
+    <div class="meta">
+      <span>Épreuve pratique NSI — Session 2026</span>
+      <span>Terminale — voie générale</span>
+      <span>Durée : 1 heure</span>
+      <span>Sujet n° — (variante)</span>
+    </div>
+    <div class="consigne">
+      Le sujet comporte cette page ainsi que les fichiers <code>livres.py</code>,
+      <code>emprunts.py</code> et <code>catalogue.py</code> présents sur l'ordinateur.
+      Le candidat doit agir en autonomie et faire preuve d'initiative tout au long de
+      l'épreuve. En cas de difficulté, il peut solliciter l'examinateur aux moments
+      indiqués par un appel professeur.
+      L'examinateur peut intervenir à tout moment s'il le juge utile.
+    </div>
+  </div>
+
+  <!-- CONTEXTE -->
+  <section id="contexte">
+    <h2>Contexte</h2>
+
+    <p>
+      Une médiathèque municipale souhaite informatiser la gestion de son catalogue
+      et de ses emprunts. Un développeur a commencé à structurer les données en Python
+      à l'aide de deux fichiers distincts. L'objectif de ce sujet est d'écrire les
+      fonctions nécessaires à l'analyse de ces données, puis d'identifier et de corriger
+      un défaut dans une fonction déjà rédigée.
+    </p>
+
+    <div class="encadre">
+      <span class="encadre-prefix">Rappel de cours — Programmation orientée objet</span>
+      En Python, une <strong>classe</strong> permet de définir un nouveau type d'objet.
+      Chaque objet créé à partir de cette classe est appelé une <strong>instance</strong>.
+      La méthode spéciale <code>__init__</code> est le <strong>constructeur</strong> :
+      elle est appelée automatiquement à la création de chaque instance et initialise ses
+      <strong>attributs</strong> via le paramètre <code>self</code>.
+      On accède à un attribut avec la notation pointée : <code>objet.attribut</code>.
+    </div>
+  </section>
+
+  <hr class="sep">
+
+  <!-- DESCRIPTION DES FICHIERS -->
+  <section id="fichiers">
+    <h2>Description des fichiers fournis</h2>
+
+    <h3>Fichier <code>livres.py</code></h3>
+
+    <p>
+      Ce fichier définit la classe <code>Livre</code> ainsi qu'une liste nommée
+      <code>livres</code>, qui contient dix instances de cette classe.
+      Chaque instance possède les attributs suivants :
+    </p>
+
+    <table class="table-donnees">
+      <thead>
+        <tr>
+          <th>Attribut</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Exemple</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>titre</code></td>
+          <td>chaîne</td>
+          <td>Titre complet de l'ouvrage</td>
+          <td><code>"Les Misérables"</code></td>
+        </tr>
+        <tr>
+          <td><code>auteur</code></td>
+          <td>chaîne</td>
+          <td>Nom de l'auteur</td>
+          <td><code>"Victor Hugo"</code></td>
+        </tr>
+        <tr>
+          <td><code>annee</code></td>
+          <td>entier</td>
+          <td>Année de première publication</td>
+          <td><code>1862</code></td>
+        </tr>
+        <tr>
+          <td><code>nb_pages</code></td>
+          <td>entier</td>
+          <td>Nombre de pages de l'édition de référence</td>
+          <td><code>1488</code></td>
+        </tr>
+        <tr>
+          <td><code>genre</code></td>
+          <td>chaîne</td>
+          <td>Genre littéraire parmi : <code>"aventure"</code>, <code>"roman"</code>,
+              <code>"roman historique"</code>, <code>"roman social"</code>,
+              <code>"philosophique"</code>, <code>"conte"</code>, <code>"poésie"</code></td>
+          <td><code>"roman historique"</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Fichier <code>emprunts.py</code></h3>
+
+    <p>
+      Ce fichier contient la liste <code>emprunts</code> : une liste de dictionnaires,
+      chacun représentant un emprunt enregistré par la médiathèque.
+      Chaque dictionnaire comporte les clés suivantes :
+    </p>
+
+    <table class="table-donnees">
+      <thead>
+        <tr>
+          <th>Clé</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Exemple</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>'titre'</code></td>
+          <td>chaîne</td>
+          <td>Titre du livre emprunté (correspond à un titre de <code>livres.py</code>)</td>
+          <td><code>"L'Étranger"</code></td>
+        </tr>
+        <tr>
+          <td><code>'adherent'</code></td>
+          <td>chaîne</td>
+          <td>Nom et prénom de l'adhérent</td>
+          <td><code>"Alice Moreau"</code></td>
+        </tr>
+        <tr>
+          <td><code>'duree'</code></td>
+          <td>entier</td>
+          <td>Durée effective de l'emprunt, en jours</td>
+          <td><code>14</code></td>
+        </tr>
+        <tr>
+          <td><code>'note'</code></td>
+          <td>entier</td>
+          <td>Note attribuée par l'adhérent, de 1 à 5</td>
+          <td><code>5</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Fichier <code>catalogue.py</code></h3>
+
+    <p>
+      Ce fichier importe les deux jeux de données et contient :
+    </p>
+    <ul>
+      <li>deux emplacements prévus pour les fonctions des questions 1 et 2 ;</li>
+      <li>une fonction <code>supprimer_emprunts_courts</code> à analyser (question 3) ;</li>
+      <li>une fonction de test <code>test_supprimer</code> à exécuter (question 3).</li>
+    </ul>
+    <p>
+      L'ensemble du travail doit être rédigé dans le fichier <code>catalogue.py</code>,
+      en conservant les imports existants.
+    </p>
+  </section>
+
+  <hr class="sep">
+
+  <!-- QUESTION 1 -->
+  <section id="q1">
+    <h2><span class="badge-question">Question 1</span> Ancienneté moyenne du catalogue</h2>
+
+    <div class="encadre-question">
+      <span class="encadre-prefix">Énoncé</span>
+      <p>
+        Écrire une fonction <code>anciennete_moyenne(livres)</code> qui prend en paramètre
+        une liste d'instances de la classe <code>Livre</code> et renvoie
+        l'<strong>ancienneté moyenne</strong> des ouvrages du catalogue, exprimée en années.
+      </p>
+      <p>
+        L'ancienneté d'un livre est définie comme la différence entre l'année en cours
+        (2026) et son année de publication. Si la liste fournie est vide, la fonction
+        doit renvoyer <code>None</code>.
+      </p>
+      <p>
+        Écrire <strong>au moins deux tests</strong> pour valider le bon fonctionnement
+        de cette fonction, dont un traitant le cas d'une liste vide.
+      </p>
+    </div>
+
+    <div class="encadre-conseil">
+      <span class="encadre-prefix">Conseil</span>
+      Commencer par traiter les cas particuliers (liste vide) avant de calculer
+      la moyenne. Penser à utiliser la fonction <code>len()</code> pour obtenir
+      le nombre d'éléments dans la liste.
+    </div>
+
+    <div class="encadre-indice">
+      <span class="encadre-prefix">Indice</span>
+      <button class="btn-tp-vert" onclick="basculerIndice('indice-q1')">Afficher l'indice</button>
+      <div id="indice-q1" class="indice-bloc">
+        <p style="margin-top:.8rem;">
+          Pour calculer une moyenne, il faut d'abord accumuler la somme de toutes
+          les valeurs souhaitées, puis diviser par leur nombre.
+          L'attribut de chaque instance qui contient l'année de publication
+          s'appelle <code>annee</code> ; on y accède par <code>livre.annee</code>.
+        </p>
+      </div>
+    </div>
+
+    <div class="encadre">
+      <span class="encadre-prefix">Éditeur interactif — Question 1</span>
+      <p style="font-size:.88rem; color:var(--text-muted);">
+        Les éditeurs ci-dessous fonctionnent dans le navigateur grâce à PyScript.
+        Les données réelles de <code>livres.py</code> sont disponibles directement.
+        Écrire votre code dans Thonny pour le rendu final.
+      </p>
+      <script type="py-editor" env="q1">
+# Données embarquées pour l'éditeur (extrait représentatif)
+class Livre:
+    def __init__(self, titre, auteur, annee, nb_pages, genre):
+        self.titre    = titre
+        self.auteur   = auteur
+        self.annee    = annee
+        self.nb_pages = nb_pages
+        self.genre    = genre
+
+livres_test = [
+    Livre("Les Misérables",  "Victor Hugo",   1862, 1488, "roman historique"),
+    Livre("L'Étranger",      "Albert Camus",  1942,  186, "philosophique"),
+    Livre("Le Petit Prince", "A. de Saint-Exupéry", 1943, 96, "conte"),
+]
+
+# --- Écrire ici la fonction anciennete_moyenne ---
+
+
+# --- Tests ---
+print(anciennete_moyenne([]))
+print(anciennete_moyenne(livres_test))
+      </script>
+    </div>
+
+    <div class="encadre-appel">
+      <span class="encadre-prefix">Appel professeur</span>
+      Appeler le professeur pour lui présenter votre réponse ou en cas de difficulté.
+    </div>
+  </section>
+
+  <hr class="sep">
+
+  <!-- QUESTION 2 -->
+  <section id="q2">
+    <h2><span class="badge-question">Question 2</span> Dictionnaire des emprunts par livre</h2>
+
+    <div class="encadre-question">
+      <span class="encadre-prefix">Énoncé</span>
+      <p>
+        Écrire une fonction <code>dictionnaire_emprunts(livres, emprunts)</code> qui
+        prend en paramètre la liste des livres et la liste des emprunts.
+        Elle doit renvoyer un <strong>dictionnaire</strong> dans lequel :
+      </p>
+      <ul>
+        <li>chaque <strong>clé</strong> est le titre d'un livre présent dans la liste
+            <code>livres</code> ;</li>
+        <li>la <strong>valeur</strong> associée est la liste de tous les dictionnaires
+            d'emprunt concernant ce titre.</li>
+      </ul>
+      <p>
+        Si un livre de la liste ne possède aucun emprunt enregistré, la liste
+        correspondante dans le dictionnaire doit être <strong>vide</strong>.
+      </p>
+      <p>
+        Concevoir une série de tests pertinente pour vérifier le bon comportement
+        de cette fonction.
+      </p>
+    </div>
+
+    <div class="encadre">
+      <span class="encadre-prefix">Exemple de retour attendu (extrait)</span>
+      <pre>{
+  "Les Misérables": [
+    {"titre": "Les Misérables", "adherent": "Bruno Leroy",    "duree": 28, "note": 4},
+    {"titre": "Les Misérables", "adherent": "Alice Moreau",   "duree": 35, "note": 5},
+    {"titre": "Les Misérables", "adherent": "Camille Dupuis", "duree": 40, "note": 4}
+  ],
+  "Germinal": [
+    {"titre": "Germinal", "adherent": "Camille Dupuis", "duree": 14, "note": 3},
+    ...
+  ],
+  ...
+}</pre>
+    </div>
+
+    <div class="encadre-indice">
+      <span class="encadre-prefix">Indice</span>
+      <button class="btn-tp-vert" onclick="basculerIndice('indice-q2')">Afficher l'indice</button>
+      <div id="indice-q2" class="indice-bloc">
+        <p style="margin-top:.8rem;">
+          Initialiser d'abord le dictionnaire résultat en associant une liste vide
+          à chacun des titres présents dans <code>livres</code>.
+          Parcourir ensuite chaque emprunt et ajouter le dictionnaire correspondant
+          à la liste du bon titre.
+        </p>
+      </div>
+    </div>
+
+    <div class="encadre">
+      <span class="encadre-prefix">Éditeur interactif — Question 2</span>
+      <script type="py-editor" env="q2">
+# Données embarquées pour l'éditeur
+class Livre:
+    def __init__(self, titre, auteur, annee, nb_pages, genre):
+        self.titre    = titre
+        self.auteur   = auteur
+        self.annee    = annee
+        self.nb_pages = nb_pages
+        self.genre    = genre
+
+livres_test = [
+    Livre("Les Misérables", "Victor Hugo",  1862, 1488, "roman historique"),
+    Livre("L'Étranger",     "Albert Camus", 1942,  186, "philosophique"),
+    Livre("Germinal",       "Émile Zola",   1885,  591, "roman social"),
+]
+
+emprunts_test = [
+    {"titre": "Les Misérables", "adherent": "Alice",   "duree": 28, "note": 4},
+    {"titre": "L'Étranger",     "adherent": "Bruno",   "duree":  7, "note": 5},
+    {"titre": "Les Misérables", "adherent": "Camille", "duree": 40, "note": 4},
+]
+
+# --- Écrire ici la fonction dictionnaire_emprunts ---
+
+
+# --- Tests ---
+resultat = dictionnaire_emprunts(livres_test, emprunts_test)
+for titre, liste in resultat.items():
+    print(f"{titre} : {len(liste)} emprunt(s)")
+      </script>
+    </div>
+  </section>
+
+  <hr class="sep">
+
+  <!-- QUESTION 3 -->
+  <section id="q3">
+    <h2><span class="badge-question">Question 3</span> Analyse d'une fonction défaillante</h2>
+
+    <p>
+      Afin de ne conserver que les emprunts ayant duré suffisamment longtemps pour
+      être significatifs sur le plan statistique, un développeur a rédigé la fonction
+      <code>supprimer_emprunts_courts</code>. Cette fonction, fournie dans le fichier
+      <code>catalogue.py</code>, est censée retirer de la liste tous les emprunts
+      dont la durée est <strong>strictement inférieure à 10 jours</strong>.
+    </p>
+
+    <p>
+      Cependant, lorsqu'on exécute la fonction de test sur les données, on constate
+      qu'un certain nombre d'emprunts courts subsistent dans la liste finale.
+    </p>
+
+    <div class="encadre">
+      <span class="encadre-prefix">Code fourni dans catalogue.py</span>
+      <pre>def supprimer_emprunts_courts(liste_emprunts):
+    """
+    Supprime de la liste tous les emprunts dont la durée
+    est strictement inférieure à 10 jours.
+    """
+    for emprunt in liste_emprunts:
+        if emprunt['duree'] &lt; 10:
+            liste_emprunts.remove(emprunt)
+    return liste_emprunts
+
+def test_supprimer():
+    emprunts_test = [
+        {'titre': 'Livre A', 'adherent': 'Alice', 'duree':  4, 'note': 5},
+        {'titre': 'Livre B', 'adherent': 'Alice', 'duree':  5, 'note': 4},
+        {'titre': 'Livre C', 'adherent': 'Alice', 'duree': 15, 'note': 3},
+        {'titre': 'Livre D', 'adherent': 'Alice', 'duree':  7, 'note': 4},
+        {'titre': 'Livre E', 'adherent': 'Alice', 'duree':  8, 'note': 5},
+    ]
+
+    supprimer_emprunts_courts(emprunts_test)
+
+    print("Résultat après suppression des emprunts courts :")
+    for e in emprunts_test:
+        print(f"{e['titre']} — durée : {e['duree']} jour(s)")</pre>
+    </div>
+
+    <div class="encadre-question">
+      <span class="encadre-prefix">Énoncé</span>
+      <p>
+        Exécuter la fonction <code>test_supprimer</code> dans Thonny et analyser
+        son code pour identifier la source de cette erreur logique.
+        <strong>Décrire précisément, par écrit, la cause du dysfonctionnement.</strong>
+      </p>
+    </div>
+
+    <div class="encadre-indice">
+      <span class="encadre-prefix">Indice</span>
+      <button class="btn-tp-vert" onclick="basculerIndice('indice-q3')">Afficher l'indice</button>
+      <div id="indice-q3" class="indice-bloc">
+        <p style="margin-top:.8rem;">
+          Observer attentivement ce qui se passe lorsque deux éléments à supprimer
+          se suivent dans la liste. Réfléchir à la façon dont Python gère les indices
+          internes lors du parcours d'une liste que l'on modifie simultanément.
+        </p>
+      </div>
+    </div>
+
+    <div class="encadre">
+      <span class="encadre-prefix">Éditeur interactif — Reproduire le dysfonctionnement</span>
+      <p style="font-size:.88rem; color:var(--text-muted);">
+        Exécuter le code ci-dessous pour observer le comportement défaillant
+        et comparer avec le résultat attendu.
+      </p>
+      <script type="py-editor" env="q3">
+def supprimer_emprunts_courts(liste_emprunts):
+    for emprunt in liste_emprunts:
+        if emprunt['duree'] < 10:
+            liste_emprunts.remove(emprunt)
+    return liste_emprunts
+
+emprunts_test = [
+    {'titre': 'Livre A', 'adherent': 'Alice', 'duree':  4, 'note': 5},
+    {'titre': 'Livre B', 'adherent': 'Alice', 'duree':  5, 'note': 4},
+    {'titre': 'Livre C', 'adherent': 'Alice', 'duree': 15, 'note': 3},
+    {'titre': 'Livre D', 'adherent': 'Alice', 'duree':  7, 'note': 4},
+    {'titre': 'Livre E', 'adherent': 'Alice', 'duree':  8, 'note': 5},
+]
+
+supprimer_emprunts_courts(emprunts_test)
+
+print("Résultat obtenu (attendu : Livre C uniquement) :")
+for e in emprunts_test:
+    print(f"  {e['titre']} — durée : {e['duree']} jour(s)")
+      </script>
+    </div>
+
+    <div class="encadre-appel">
+      <span class="encadre-prefix">Appel professeur</span>
+      Appeler le professeur pour lui présenter votre réponse ou en cas de difficulté.
+    </div>
+  </section>
+
+  <hr class="sep">
+
+  <!-- QUESTION 4 -->
+  <section id="q4">
+    <h2><span class="badge-question">Question 4</span> Correction de la fonction</h2>
+
+    <div class="encadre-question">
+      <span class="encadre-prefix">Énoncé</span>
+      <p>
+        Proposer une version <strong>corrigée</strong> de la fonction
+        <code>supprimer_emprunts_courts</code> qui réponde parfaitement à l'objectif
+        défini : supprimer de la liste tous les emprunts dont la durée est strictement
+        inférieure à 10 jours, sans en oublier aucun.
+      </p>
+      <p>
+        Valider la correction à l'aide de la fonction <code>test_supprimer</code>.
+      </p>
+    </div>
+
+    <div class="encadre-conseil">
+      <span class="encadre-prefix">Conseil</span>
+      Il existe plusieurs approches correctes. En choisir une qui soit lisible
+      et conforme aux bonnes pratiques Python. Ne pas modifier la signature de la
+      fonction (nom et paramètre).
+    </div>
+
+    <div class="encadre-indice">
+      <span class="encadre-prefix">Indice</span>
+      <button class="btn-tp-vert" onclick="basculerIndice('indice-q4')">Afficher l'indice</button>
+      <div id="indice-q4" class="indice-bloc">
+        <p style="margin-top:.8rem;">
+          Il est risqué de supprimer des éléments d'une liste pendant qu'on la parcourt.
+          Une solution classique consiste à <em>construire une nouvelle liste</em>
+          ne contenant que les éléments à conserver, puis à remplacer le contenu
+          de la liste originale par cette nouvelle liste.
+        </p>
+      </div>
+    </div>
+
+    <div class="encadre">
+      <span class="encadre-prefix">Éditeur interactif — Question 4</span>
+      <script type="py-editor" env="q4">
+# Écrire ici la version corrigée de la fonction
+
+def supprimer_emprunts_courts(liste_emprunts):
+    # À compléter
+    pass
+
+# Test de validation
+def test_supprimer():
+    emprunts_test = [
+        {'titre': 'Livre A', 'adherent': 'Alice', 'duree':  4, 'note': 5},
+        {'titre': 'Livre B', 'adherent': 'Alice', 'duree':  5, 'note': 4},
+        {'titre': 'Livre C', 'adherent': 'Alice', 'duree': 15, 'note': 3},
+        {'titre': 'Livre D', 'adherent': 'Alice', 'duree':  7, 'note': 4},
+        {'titre': 'Livre E', 'adherent': 'Alice', 'duree':  8, 'note': 5},
+    ]
+    supprimer_emprunts_courts(emprunts_test)
+    print("Résultat attendu : Livre C — durée : 15 jour(s)")
+    print("Résultat obtenu :")
+    for e in emprunts_test:
+        print(f"  {e['titre']} — durée : {e['duree']} jour(s)")
+
+test_supprimer()
+      </script>
+    </div>
+
+    <div class="encadre-appel">
+      <span class="encadre-prefix">Appel professeur</span>
+      Appeler le professeur pour lui présenter votre réponse ou en cas de difficulté.
+    </div>
+  </section>
+
+  <hr class="sep">
+
+  <!-- DESCRIPTION DU DOSSIER -->
+  <section id="dossier">
+    <h2>Description du dossier fourni</h2>
+    <p>Le dossier remis au candidat comporte les éléments suivants :</p>
+    <ul>
+      <li>une version PDF de l'énoncé ;</li>
+      <li>un fichier <code>catalogue.py</code> à compléter ;</li>
+      <li>un jeu de données <code>livres.py</code> ;</li>
+      <li>un jeu de données <code>emprunts.py</code>.</li>
+    </ul>
+  </section>
+
+</div><!-- fin .container-content -->
+
+<!-- PIED DE PAGE -->
+<footer>
+  Lycée Antoine Watteau — Valenciennes &nbsp;|&nbsp; NSI Terminale — Session 2026
+  &nbsp;|&nbsp; DarkSATHI Li
+</footer>
+
+<!-- BOUTON RETOUR EN HAUT -->
+<button id="btn-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">Haut</button>
+
+<!-- Élément de démarrage PyScript (obligatoire pour initialiser Pyodide) -->
+<script type="py" style="display:none">
+pass
+</script>
+
+<script>
+  function basculerIndice(id) {
+    const bloc = document.getElementById(id);
+    if (!bloc) return;
+    const visible = bloc.classList.contains('visible');
+    bloc.classList.toggle('visible', !visible);
+    const btn = bloc.previousElementSibling;
+    if (btn) btn.textContent = visible ? 'Afficher l\'indice' : 'Masquer l\'indice';
+  }
+</script>
+
+</body>
+</html>

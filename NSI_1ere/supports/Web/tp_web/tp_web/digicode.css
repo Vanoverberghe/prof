@@ -1,0 +1,27 @@
+body, button {
+  font-family: Arial;
+  font-size: 42px;
+}
+
+body > div {
+  text-align: center;
+  margin: 0 auto;
+}
+
+#code {
+  width: 4em;
+  padding: .25em;
+  color: #283593;
+  margin-bottom: .5em;
+  border-bottom: .05em solid #999;
+}
+
+#buttons {
+  width: 8em;
+}
+
+button {
+  margin: 0 .15em .3em .15em;
+  padding-right: .25em;
+  padding-left: .25em;
+}

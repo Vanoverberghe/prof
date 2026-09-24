@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NSI — Épreuve pratique — Sujet Bibliothèque</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Rubik:wght@400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bleu: #1a3a5c;
+    --bleu-clair: #2c5f8a;
+    --or: #b8860b;
+    --or-clair: #d4a017;
+    --gris-clair: #f4f2ee;
+    --gris-moyen: #ddd8cf;
+    --texte: #1c1a18;
+    --texte-secondaire: #4a4540;
+    --blanc: #fefcf8;
+    --rouge: #8b1a1a;
+  }
+
+  html { font-size: 11pt; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    color: var(--texte);
+    background: var(--blanc);
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 12mm 18mm;
+    line-height: 1.65;
+  }
+
+  /* ── EN-TÊTE ─────────────────────────────────────────────────────── */
+  header {
+    border-top: 4px solid var(--bleu);
+    border-bottom: 2px solid var(--or);
+    padding: 10px 0 12px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  header .institution {
+    font-family: 'Rubik', sans-serif;
+    font-size: 9pt;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--texte-secondaire);
+    margin-bottom: 6px;
+  }
+
+  header h1 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 16pt;
+    font-weight: 600;
+    color: var(--bleu);
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  header .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid var(--gris-moyen);
+  }
+
+  header .meta span {
+    font-family: 'Rubik', sans-serif;
+    font-size: 8.5pt;
+    color: var(--texte-secondaire);
+  }
+
+  header .numero-sujet {
+    background: var(--bleu);
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 9pt;
+    padding: 3px 10px;
+    border-radius: 2px;
+  }
+
+  /* ── ENCADRÉS ────────────────────────────────────────────────────── */
+  .encadre {
+    border: 1.5px solid var(--gris-moyen);
+    padding: 12px 16px;
+    margin: 14px 0;
+    background: var(--gris-clair);
+    border-left: 4px solid var(--bleu-clair);
+  }
+
+  .encadre.important {
+    border-left-color: var(--or);
+    background: #faf7ee;
+  }
+
+  .encadre.code-rappel {
+    border-left-color: #4a7a4a;
+    background: #f2f7f2;
+  }
+
+  .encadre p + p { margin-top: 6px; }
+
+  /* ── SECTIONS ────────────────────────────────────────────────────── */
+  section { margin-bottom: 22px; }
+
+  h2 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 11.5pt;
+    font-weight: 600;
+    color: var(--bleu);
+    border-bottom: 1.5px solid var(--bleu);
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+    margin-top: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  h3 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: var(--bleu-clair);
+    margin: 14px 0 6px;
+  }
+
+  p { margin-bottom: 8px; }
+
+  /* ── QUESTIONS ───────────────────────────────────────────────────── */
+  .question {
+    border: 1.5px solid var(--bleu);
+    margin: 14px 0;
+    background: white;
+  }
+
+  .question-header {
+    background: var(--bleu);
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    font-size: 9.5pt;
+    font-weight: 600;
+    padding: 5px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .question-body {
+    padding: 10px 14px;
+  }
+
+  .question-body p:last-child { margin-bottom: 0; }
+
+  /* ── APPEL PROF ──────────────────────────────────────────────────── */
+  .appel-prof {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff8e6;
+    border: 1px solid var(--or);
+    color: var(--or);
+    font-family: 'Rubik', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    padding: 4px 10px;
+    margin-top: 10px;
+    border-radius: 2px;
+  }
+
+  /* ── CODE ────────────────────────────────────────────────────────── */
+  code, .code-inline {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 9pt;
+    background: #e8e4dc;
+    padding: 1px 4px;
+    border-radius: 2px;
+    color: var(--bleu);
+  }
+
+  pre {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 8.5pt;
+    background: #1c1a18;
+    color: #d4cfbf;
+    padding: 10px 14px;
+    overflow-x: auto;
+    line-height: 1.55;
+    margin: 10px 0;
+    border-left: 3px solid var(--or);
+  }
+
+  pre .kw  { color: #7ac; }
+  pre .fn  { color: #aed68f; }
+  pre .str { color: #e09975; }
+  pre .cm  { color: #7a7060; font-style: italic; }
+  pre .nb  { color: #cf9; }
+
+  /* ── SCHÉMA BD ───────────────────────────────────────────────────── */
+  .schema-bd {
+    display: flex;
+    gap: 16px;
+    margin: 12px 0;
+    flex-wrap: wrap;
+  }
+
+  .table-bd {
+    border: 1.5px solid var(--bleu);
+    min-width: 160px;
+    flex: 1;
+  }
+
+  .table-bd-header {
+    background: var(--bleu);
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9pt;
+    font-weight: 700;
+    padding: 5px 10px;
+    text-align: center;
+  }
+
+  .table-bd-body {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8pt;
+    padding: 6px 10px;
+    line-height: 1.8;
+  }
+
+  .pk { color: var(--or); font-weight: 700; }
+  .fk { color: var(--bleu-clair); font-style: italic; }
+  .field-sep { border-bottom: 1px dashed var(--gris-moyen); margin: 4px 0; }
+
+  /* ── EXTRAITS TABLE ──────────────────────────────────────────────── */
+  .extrait-tables {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+  }
+
+  .extrait {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .extrait-title {
+    font-family: 'Rubik', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: var(--texte-secondaire);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8pt;
+  }
+
+  th {
+    background: var(--bleu);
+    color: white;
+    padding: 4px 8px;
+    text-align: left;
+    font-weight: 500;
+  }
+
+  td {
+    border: 1px solid var(--gris-moyen);
+    padding: 3px 8px;
+    background: white;
+  }
+
+  tr:nth-child(even) td { background: var(--gris-clair); }
+
+  /* ── LÉGENDE ─────────────────────────────────────────────────────── */
+  .legende {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8pt;
+  }
+
+  .legende span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .dot { width: 10px; height: 10px; display: inline-block; border-radius: 50%; }
+  .dot-pk { background: var(--or); }
+  .dot-fk { background: var(--bleu-clair); }
+
+  /* ── PIED DE PAGE ─────────────────────────────────────────────────── */
+  .page-num {
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    font-size: 8pt;
+    color: var(--texte-secondaire);
+    margin-top: 24px;
+    padding-top: 8px;
+    border-top: 1px solid var(--gris-moyen);
+  }
+
+  /* ── FICHIERS DOSSIER ─────────────────────────────────────────────── */
+  .fichiers {
+    list-style: none;
+    padding: 0;
+  }
+
+  .fichiers li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--gris-moyen);
+    font-family: 'Rubik', sans-serif;
+    font-size: 9.5pt;
+  }
+
+  .fichiers li:last-child { border-bottom: none; }
+
+  .fichier-icon {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8pt;
+    background: var(--bleu);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 2px;
+    min-width: 50px;
+    text-align: center;
+  }
+
+  .fichier-icon.py  { background: #2a6a2a; }
+  .fichier-icon.db  { background: #6a2a2a; }
+  .fichier-icon.pdf { background: var(--bleu); }
+
+  /* ── IMPRESSION ───────────────────────────────────────────────────── */
+  @media print {
+    body { padding: 10mm 15mm; font-size: 10.5pt; }
+    .question { page-break-inside: avoid; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ EN-TÊTE ══════════════════════════════════════════════════════════ -->
+<header>
+  <div class="institution">Baccalauréat général &mdash; Session 2026</div>
+  <h1>Numérique et Sciences Informatiques<br>
+  <span style="font-size:13pt;font-weight:400">Épreuve de l'enseignement de spécialité &mdash; Partie pratique</span></h1>
+  <div class="meta">
+    <span>Classe Terminale &mdash; Voie générale</span>
+    <span class="numero-sujet">Sujet Bibliothèque</span>
+    <span>Durée : 1 heure</span>
+  </div>
+</header>
+
+<div class="encadre">
+  <p>Cette situation d'évaluation comporte ce document ainsi que des fichiers de codes et de données présents sur l'ordinateur à la disposition du candidat. Le candidat doit restituer ce document avant de sortir de la salle d'examen. <strong>Le candidat doit agir en autonomie et faire preuve d'initiative tout au long de l'épreuve.</strong></p>
+  <p>En cas de difficulté, le candidat peut solliciter l'examinateur afin de lui permettre de continuer la tâche. Des moments privilégiés pour solliciter l'examinateur sont indiqués dans le document sous la forme d'<em>appels professeur</em>. L'examinateur peut intervenir à tout moment, s'il le juge utile.</p>
+</div>
+
+<!-- ══ CADRE ═════════════════════════════════════════════════════════════ -->
+<section>
+  <h2>Cadre</h2>
+  <p>Une bibliothèque municipale utilise une base de données pour gérer ses collections, ses adhérents et les emprunts de livres. La bibliothécaire souhaite améliorer son service en automatisant les rappels de retour par SMS.</p>
+
+  <h3>Objectif</h3>
+  <p>La durée maximale d'emprunt d'un livre est de <strong>14 jours</strong>. Passé ce délai, les adhérents n'ayant pas rendu leur livre reçoivent des rappels par SMS. La bibliothécaire dispose d'une plateforme d'envoi de SMS, mais il est nécessaire de préparer les données et les messages à envoyer.</p>
+  <p>Pour cela, on devra extraire depuis la base de données la liste des emprunts en retard (livres non rendus, empruntés depuis plus de 14 jours), puis contacter chaque adhérent par SMS sur son téléphone portable.</p>
+</section>
+
+<!-- ══ BASE DE DONNÉES ═══════════════════════════════════════════════════ -->
+<section>
+  <h2>Description de la base de données</h2>
+  <p>Le logiciel mis en œuvre par la bibliothèque utilise 3 tables pour enregistrer les livres, les adhérents et les emprunts.</p>
+
+  <div class="schema-bd">
+
+    <div class="table-bd">
+      <div class="table-bd-header">emprunt</div>
+      <div class="table-bd-body">
+        <div><span class="pk">id : int</span></div>
+        <div class="field-sep"></div>
+        <div><span class="fk">id_livre : int</span></div>
+        <div><span class="fk">id_adherent : int</span></div>
+        <div>date_emprunt : str (AAAAMMJJ)</div>
+        <div>date_retour : str (AAAAMMJJ)</div>
+      </div>
+    </div>
+
+    <div class="table-bd">
+      <div class="table-bd-header">livre</div>
+      <div class="table-bd-body">
+        <div><span class="pk">id : int</span></div>
+        <div class="field-sep"></div>
+        <div>titre : str</div>
+        <div>auteur : str</div>
+        <div>genre : str</div>
+      </div>
+    </div>
+
+    <div class="table-bd">
+      <div class="table-bd-header">adherent</div>
+      <div class="table-bd-body">
+        <div><span class="pk">id : int</span></div>
+        <div class="field-sep"></div>
+        <div>nom : str</div>
+        <div>prenom : str</div>
+        <div>telephone : str</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="legende">
+    <span><span class="dot dot-pk"></span> clef primaire</span>
+    <span><span class="dot dot-fk"></span> clef étrangère</span>
+  </div>
+
+  <p style="margin-top:10px;font-size:9pt;font-style:italic;color:var(--texte-secondaire)">
+    Note : le champ <code>date_retour</code> est <code>NULL</code> tant que le livre n'a pas été rendu.
+  </p>
+
+  <h3>Extraits de la base de données</h3>
+  <div class="extrait-tables">
+
+    <div class="extrait">
+      <div class="extrait-title">Table adherent</div>
+      <table>
+        <tr><th>id</th><th>nom</th><th>prenom</th><th>telephone</th></tr>
+        <tr><td>1</td><td>Martin</td><td>Alice</td><td>06 12 34 56 78</td></tr>
+        <tr><td>2</td><td>Dupont</td><td>Bernard</td><td>07.89.01.23.45</td></tr>
+        <tr><td>3</td><td>Leroy</td><td>Claire</td><td>(0)6.55.44.33.22</td></tr>
+      </table>
+    </div>
+
+    <div class="extrait">
+      <div class="extrait-title">Table livre</div>
+      <table>
+        <tr><th>id</th><th>titre</th><th>auteur</th><th>genre</th></tr>
+        <tr><td>1</td><td>Dune</td><td>Frank Herbert</td><td>science-fiction</td></tr>
+        <tr><td>2</td><td>1984</td><td>George Orwell</td><td>science-fiction</td></tr>
+        <tr><td>6</td><td>Sherlock Holmes</td><td>A.C. Doyle</td><td>policier</td></tr>
+      </table>
+    </div>
+
+    <div class="extrait">
+      <div class="extrait-title">Table emprunt</div>
+      <table>
+        <tr><th>id</th><th>id_livre</th><th>id_adherent</th><th>date_emprunt</th><th>date_retour</th></tr>
+        <tr><td>1</td><td>1</td><td>1</td><td>20251110</td><td>NULL</td></tr>
+        <tr><td>2</td><td>2</td><td>1</td><td>20251026</td><td>NULL</td></tr>
+        <tr><td>5</td><td>5</td><td>2</td><td>20250927</td><td>20251004</td></tr>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ RAPPELS TECHNIQUES ════════════════════════════════════════════════ -->
+<section>
+  <h2>Rappels techniques</h2>
+
+  <p>Le système de gestion de base de données utilisé est SQLite, accessible via le module <code>sqlite3</code> de la bibliothèque standard Python.</p>
+
+  <div class="encadre code-rappel">
+    <p><strong>Connexion et exécution de requêtes :</strong></p>
+<pre>DB_PATH = <span class="str">"biblio.sqlite"</span>
+conn = sqlite3.connect(DB_PATH)
+cursor = conn.cursor()
+
+resultats = cursor.execute(
+    <span class="str">"SELECT id, titre FROM livre ORDER BY titre LIMIT 5"</span>
+)
+<span class="cm"># resultats est itérable, chaque élément est un tuple</span>
+<span class="kw">for</span> r <span class="kw">in</span> resultats:
+    <span class="nb">print</span>(<span class="str">"id:"</span>, r[0], <span class="str">", titre:"</span>, r[1])</pre>
+  </div>
+
+  <div class="encadre code-rappel">
+    <p><strong>Passage de paramètre dans une requête SQL :</strong></p>
+<pre>resultat = cursor.execute(
+    <span class="str">"""SELECT titre FROM livre
+    WHERE genre = ? ORDER BY titre"""</span>,
+    (<span class="str">"policier"</span>,)
+)</pre>
+  </div>
+
+  <p>Les clauses SQL à utiliser sont : <code>SELECT</code>, <code>FROM</code>, <code>JOIN</code>, <code>ON</code>, <code>WHERE</code>, <code>IS NULL</code>, <code>ORDER BY</code></p>
+
+  <div class="encadre important">
+    <p><strong>Rappel sur les dates :</strong> les dates sont stockées au format <code>AAAAMMJJ</code> (ex. : <code>20251101</code> pour le 1er novembre 2025). Ce format permet de comparer des dates directement avec les opérateurs <code>&lt;</code>, <code>&gt;</code>, <code>=</code> dans SQL et en Python.</p>
+  </div>
+</section>
+
+<!-- ══ NUMÉROS DE TÉLÉPHONE ══════════════════════════════════════════════ -->
+<section>
+  <h2>Numéros de téléphone</h2>
+  <p>La plateforme d'envoi de SMS requiert un numéro de téléphone au format <code>06XXXXXXXX</code> ou <code>07XXXXXXXX</code> — 10 chiffres au total, sans espace, ni point, ni autre caractère. Malheureusement, les téléphones ont été enregistrés sans distinction entre mobiles et fixes, et avec des formats variés&nbsp;: <code>"(0)6 12 34 56 78"</code>, <code>"07.89.01.23.45"</code>, <code>"0623145896 dupuis"</code>…</p>
+
+  <div class="encadre">
+    <p><strong>Rappel :</strong> on peut utiliser la méthode <code>isdigit()</code> de la classe <code>str</code> pour déterminer si un caractère est un chiffre.</p>
+<pre>&gt;&gt;&gt; <span class="str">'3'</span>.isdigit()
+<span class="nb">True</span>
+&gt;&gt;&gt; <span class="str">'A'</span>.isdigit()
+<span class="nb">False</span></pre>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span>Question 1 &mdash; Nettoyage des numéros de téléphone</span>
+    </div>
+    <div class="question-body">
+      <p>Écrire une fonction Python <code>normalisation_tel</code> qui prend un numéro de téléphone <code>tel</code> de type <code>str</code> en argument et renvoie le numéro nettoyé en ne conservant que les chiffres. Exemples :</p>
+<pre>normalisation_tel(<span class="str">"(0)6.55.44.33.22"</span>)  <span class="cm"># renvoie "0655443322"</span>
+normalisation_tel(<span class="str">"07.89.01.23.45"</span>)    <span class="cm"># renvoie "0789012345"</span>
+normalisation_tel(<span class="str">"0623145896 dupuis"</span>) <span class="cm"># renvoie "0623145896"</span></pre>
+      <p>Une fonction <code>test_normalisation_tel</code> est fournie dans le fichier <code>biblio.py</code>.</p>
+      <div class="appel-prof">✋ Appel professeur &mdash; présentez votre réponse ou signalez une difficulté</div>
+    </div>
+  </div>
+
+  <h3>Validation des numéros de téléphone</h3>
+  <p>La fonction <code>validation_tel(tel)</code> prend comme argument un numéro de téléphone normalisé et renvoie un booléen selon que ce numéro est un numéro de téléphone portable français valide ou non (commence par <code>06</code> ou <code>07</code>, exactement 10 chiffres).</p>
+
+  <div class="question">
+    <div class="question-header">
+      <span>Question 2 &mdash; Tests de la fonction <code>validation_tel</code></span>
+    </div>
+    <div class="question-body">
+      <p>Écrire un jeu de tests permettant de vérifier le bon fonctionnement de la fonction <code>validation_tel</code> fournie. Le jeu de tests devra couvrir au minimum les cas suivants :</p>
+      <ul style="margin-left:18px;margin-top:6px;line-height:2">
+        <li>un numéro portable valide commençant par <code>06</code></li>
+        <li>un numéro portable valide commençant par <code>07</code></li>
+        <li>un numéro fixe (ne commence pas par <code>06</code> ou <code>07</code>)</li>
+        <li>un numéro trop court ou trop long</li>
+      </ul>
+      <div class="appel-prof">✋ Appel professeur &mdash; présentez votre réponse ou signalez une difficulté</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EMPRUNTS EN RETARD ════════════════════════════════════════════════ -->
+<section>
+  <h2>Détermination de la liste des emprunts en retard</h2>
+
+  <p>Pour pouvoir envoyer les rappels, la bibliothécaire doit d'abord identifier les adhérents concernés à partir de la base de données.</p>
+
+  <p>On commencera par extraire tous les emprunts en retard via la fonction <code>emprunts_en_retard(date)</code>, puis on déterminera pour chaque adhérent son emprunt le plus récent (le livre qu'il a pris en dernier, qui est donc celui dont le retour est le plus urgent).</p>
+
+  <h3>Interrogation de la base de données</h3>
+  <p>La fonction <code>emprunts_en_retard(date)</code> doit récupérer tous les emprunts de livres non rendus dont la date d'emprunt est strictement antérieure à la date <code>date</code> (format <code>AAAAMMJJ</code>).</p>
+
+  <p>On souhaite récupérer les champs suivants :</p>
+  <ul style="margin-left:20px;margin-top:4px;line-height:1.9">
+    <li>identifiant de l'emprunt (<code>emprunt.id</code>)</li>
+    <li>titre du livre</li>
+    <li>téléphone de l'adhérent</li>
+    <li>date de l'emprunt</li>
+  </ul>
+  <p style="margin-top:6px">Le résultat sera trié par <code>id_adherent</code> puis par <code>date_emprunt</code> croissants.</p>
+
+  <div class="question">
+    <div class="question-header">
+      <span>Question 3 &mdash; Fonction <code>emprunts_en_retard(date)</code></span>
+    </div>
+    <div class="question-body">
+      <p>En vous inspirant de la fonction <code>adherents_livres_empruntes_apres(date)</code> déjà fournie dans <code>biblio.py</code>, écrire la fonction <code>emprunts_en_retard(date)</code>.</p>
+      <p>Des tests sont fournis dans la fonction <code>test_emprunts_en_retard</code> — votre fonction doit les passer.</p>
+      <div class="appel-prof">✋ Appel professeur &mdash; présentez votre réponse ou signalez une difficulté</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EMPRUNT LE PLUS RÉCENT ════════════════════════════════════════════ -->
+<section>
+  <h2>Détermination de l'emprunt le plus récent par adhérent</h2>
+
+  <p>Un adhérent peut avoir plusieurs livres en retard simultanément. Pour lui envoyer un seul SMS, on souhaite identifier son emprunt le plus récent (la date d'emprunt la plus grande), qui correspond au livre pris en dernier.</p>
+
+  <p>La fonction <code>emprunt_le_plus_recent(emprunts)</code> prend en paramètre une liste d'emprunts sous la forme&nbsp;:</p>
+<pre>(id_emprunt, titre_livre, tel_adherent, date_emprunt)</pre>
+  <p>Elle doit renvoyer un dictionnaire dont la <strong>clef</strong> est le numéro de téléphone de l'adhérent, et la valeur associée est le tuple correspondant à son emprunt le <strong>plus récent</strong>.</p>
+
+  <p>Exemple : pour Alice Martin, qui a deux emprunts en retard :</p>
+<pre>(60, <span class="str">"Fahrenheit 451"</span>, <span class="str">"06 12 34 56 78"</span>, <span class="str">"20250928"</span>),
+(2,  <span class="str">"1984"</span>,           <span class="str">"06 12 34 56 78"</span>, <span class="str">"20251026"</span>),</pre>
+  <p>Son emprunt le plus récent est <em>1984</em> (emprunté le 20251026), donc le dictionnaire doit contenir :</p>
+<pre>{
+  <span class="str">"06 12 34 56 78"</span>: (2, <span class="str">"1984"</span>, <span class="str">"06 12 34 56 78"</span>, <span class="str">"20251026"</span>),
+  ...
+}</pre>
+
+  <p>Cependant, <strong>la fonction fournie dans <code>biblio.py</code> contient un bug</strong> : les tests de <code>test_emprunt_le_plus_recent</code> échouent.</p>
+
+  <div class="question">
+    <div class="question-header">
+      <span>Question 4 &mdash; Identification et correction du bug</span>
+    </div>
+    <div class="question-body">
+      <p><strong>a)</strong> Expliquer le problème rencontré dans la fonction <code>emprunt_le_plus_recent</code> : quel est le bug, et pourquoi produit-il un résultat incorrect ?</p>
+      <p style="margin-top:8px"><strong>b)</strong> Corriger la fonction pour qu'elle passe les tests avec succès.</p>
+      <div class="appel-prof">✋ Appel professeur &mdash; présentez votre réponse ou signalez une difficulté</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DESCRIPTION DU DOSSIER ════════════════════════════════════════════ -->
+<section>
+  <h2>Description du dossier</h2>
+  <p>Le dossier fourni au candidat sur l'ordinateur comporte les éléments suivants :</p>
+  <ul class="fichiers">
+    <li><span class="fichier-icon pdf">PDF</span> Une version PDF de l'énoncé</li>
+    <li><span class="fichier-icon py">.py</span> <code>biblio.py</code> &mdash; code source de départ</li>
+    <li><span class="fichier-icon db">.db</span> <code>biblio.sqlite</code> &mdash; base de données SQLite du cabinet</li>
+  </ul>
+
+  <h3>Environnement de travail</h3>
+  <div class="encadre">
+    <p>Pour faire fonctionner le code fourni, la bibliothèque <code>sqlite3</code> doit être disponible (elle fait partie de la bibliothèque standard Python — aucune installation supplémentaire n'est nécessaire).</p>
+    <p style="margin-top:6px">Éditeur conseillé : <strong>Thonny</strong> ou tout éditeur Python disponible sur le poste.</p>
+  </div>
+</section>
+
+<div class="page-num">Lycée Antoine Watteau &mdash; Valenciennes &mdash; NSI Terminale &mdash; Épreuve pratique &mdash; DarkSATHI Li</div>
+
+</body>
+</html>

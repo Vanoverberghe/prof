@@ -1,0 +1,5 @@
+p { padding: 1em; }
+#orange { background: orange; }
+#bleu, .bleu { background: #90CAF9; }
+#rouge, .rouge { background: #EF5350; }
+.contour { border: 10px solid black; }
